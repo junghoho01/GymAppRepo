@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color for the border -->
+    <item android:drawable="@android:color/transparent" />
+
+    <!-- Border shape -->
+    <item>
+        <shape android:shape="rectangle">
+            <!-- Border color -->
+            <stroke
+                android:width="0.8dp"
+                android:color="#000000" /> <!-- Change to your desired border color -->
+
+            <!-- Background color for the Spinner -->
+            <solid android:color="@android:color/white" /> <!-- Change to your desired background color -->
+
+            <corners android:radius="4dp" /> <!-- Adjust the radius as needed -->
+        </shape>
+    </item>
+</layer-list>
