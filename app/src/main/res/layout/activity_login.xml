@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="#343434">
 
     <ImageView
         android:id="@+id/img_logo"
@@ -82,7 +83,9 @@
         android:text="Login"
         android:layout_below="@id/et_password"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#ffe98a"/>
 
     <TextView
         android:id="@+id/tv_forgotPass"
