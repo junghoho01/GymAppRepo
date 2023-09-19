@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GymBetaApp</string>
+    <string name="confirmationMessage">A verification code has been sent to your email! Please get the verification code and verify here.</string>
 </resources>
