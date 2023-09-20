@@ -5,15 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfirmForgotPassword"
+    tools:context=".WhatWeightActivity"
     android:orientation="vertical"
     android:background="#343434">
 
     <ImageView
         android:id="@+id/img_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/logo_size"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:src="@drawable/filtration_pic"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"/>
@@ -22,34 +21,33 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Confirmation"
+        android:text="What is your weight (kg)?"
         android:textSize="30dp"
         android:layout_below="@id/img_logo"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tv_confirmMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="A verification link has been sent to your email! Please press the link in the email to proceed with the password change"
-        android:textSize="20dp"
-        android:layout_below="@id/textView"
-        android:layout_marginTop="10dp"
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/textView"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/spinner_border"/>
 
     <Button
         android:id="@+id/btn_submit"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Resend reset password link"
-        android:layout_below="@id/tv_confirmMessage"
+        android:text="Next"
+        android:layout_below="@id/spinner"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#ffe98a"
-        android:textColor="@color/black"/>
-
+        android:textColor="@color/black"
+        android:backgroundTint="#ffe98a"/>
 
 </RelativeLayout>

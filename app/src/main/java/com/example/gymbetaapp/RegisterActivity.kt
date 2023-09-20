@@ -20,7 +20,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun navigateConfirm() {
-        intent = Intent(this, ConfirmationActivity::class.java)
+        val intent = Intent(this, ConfirmationActivity::class.java)
         startActivity(intent)
     }
 }

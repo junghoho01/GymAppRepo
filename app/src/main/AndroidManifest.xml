@@ -13,6 +13,24 @@
         android:theme="@style/Theme.GymBetaApp"
         tools:targetApi="31">
         <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WhatChronicDiseaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WhatWeightActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WhatHeightActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WhatAge"
+            android:exported="false" />
+        <activity
+            android:name=".WhatGenderActivity"
+            android:exported="false" />
+        <activity
             android:name=".ConfirmForgotPassword"
             android:exported="false" />
         <activity
