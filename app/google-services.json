@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "20092736670",
+    "project_id": "gymdb-389d7",
+    "storage_bucket": "gymdb-389d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20092736670:android:950f498d0195a3465ed78f",
+        "android_client_info": {
+          "package_name": "com.example.gymbetaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20092736670-072b4k9k267rv4laj6ncmodvbed437t4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtMkmyJhUMZXyxsQ9CEFByeRA7js6pTss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20092736670-072b4k9k267rv4laj6ncmodvbed437t4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
