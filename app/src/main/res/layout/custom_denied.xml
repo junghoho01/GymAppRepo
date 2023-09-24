@@ -20,30 +20,29 @@
             android:padding="20dp">
 
             <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/test"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                app:lottie_rawRes="@raw/checked"
+                app:lottie_rawRes="@raw/warning"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_speed="0.8" />
+                app:lottie_speed="0.8"/>
 
             <TextView
-                android:id="@+id/employeeName"
+                android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/black"
-                android:text="Access Granted"
-                android:padding="10dp"/>
+                android:text="Access Denied"
+                android:padding="10dp"
+                android:textColor="@color/black"/>
 
             <Button
-                android:id="@+id/btnClose"
+                android:id="@+id/btnDeniedClose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Okay"
                 android:textColor="@color/black"
-                android:backgroundTint="#ffe98a"
-                android:text="Okay"/>
+                android:backgroundTint="#ffe98a"/>
 
         </LinearLayout>
 

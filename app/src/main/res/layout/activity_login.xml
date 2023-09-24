@@ -68,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:textColor="@color/black"
         android:hint="123^*asda@"
         android:layout_marginTop="10dp"
