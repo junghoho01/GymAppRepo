@@ -45,6 +45,11 @@ class ConfirmationActivity : AppCompatActivity() {
 
     private fun runEmailCode(sendCode: String) {
         // Run the email code here
+        val senderEmail = "phuajunhau.pola2001@gmail.com"
+        val receiverEmail = "phuawork@gmail.com"
+        val password = "fziiygnfzjlgsrfr"
+
+        EmailSender.sendEmail(senderEmail, receiverEmail, password, sendCode)
     }
 
     private fun runRandomCodeGenerator(): String {
