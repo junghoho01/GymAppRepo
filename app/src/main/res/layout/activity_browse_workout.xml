@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BrowseWorkoutActivity"
+    android:background="#343434">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffe98a">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Browse Workout"
+            android:layout_marginLeft="10dp"
+            android:padding="10dp"
+            android:textSize="30dp"
+            android:textColor="#55534c"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <!-- ScrollView to enable scrolling -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/relativeLayout2"
+        android:layout_above="@id/btm_navigation"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true">
+
+    <!-- RelativeLayout containing buttons -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_abs"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Abs"
+            android:textColor="#ffe98a"
+            android:drawableLeft="@drawable/muscl_pic"
+            android:backgroundTint="#55534c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/btn_abs"
+            android:text="Back"
+            android:drawableLeft="@drawable/muscl_pic"
+            android:textColor="#ffe98a"
+            android:backgroundTint="#55534c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btn_biceps"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/btn_back"
+            android:text="Biceps"
+            android:drawableLeft="@drawable/muscl_pic"
+            android:textColor="#ffe98a"
+            android:backgroundTint="#55534c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btn_calf"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/btn_biceps"
+            android:text="Calf"
+            android:drawableLeft="@drawable/muscl_pic"
+            android:textColor="#ffe98a"
+            android:backgroundTint="#55534c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btn_chest"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/btn_calf"
+            android:text="Chest"
+            android:drawableLeft="@drawable/muscl_pic"
+            android:textColor="#ffe98a"
+            android:backgroundTint="#55534c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btn_forearms"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/btn_chest"
+            android:text="Forearms"
+            android:drawableLeft="@drawable/muscl_pic"
+            android:textColor="#ffe98a"
+            android:backgroundTint="#55534c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btn_leg"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/btn_forearms"
+            android:text="Leg"
+            android:drawableLeft="@drawable/muscl_pic"
+            android:textColor="#ffe98a"
+            android:backgroundTint="#55534c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btn_shoulder"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/btn_leg"
+            android:text="Shoulder"
+            android:drawableLeft="@drawable/muscl_pic"
+            android:textColor="#ffe98a"
+            android:backgroundTint="#55534c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/btm_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:background="#ffe98a"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/nav_section1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="Section 1"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:src="@drawable/baseline_sports_gymnastics_24" />
+
+        <ImageView
+            android:id="@+id/nav_section2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="Section 1"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:src="@drawable/baseline_set_meal_24" />
+
+        <ImageView
+            android:id="@+id/nav_section3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="Section 1"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:src="@drawable/baseline_home_24" />
+
+        <ImageView
+            android:id="@+id/nav_section4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="Section 1"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:src="@drawable/baseline_signal_cellular_alt_24" />
+
+        <ImageView
+            android:id="@+id/nav_section5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="Section 1"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:src="@drawable/baseline_person_24" />
+
+    </LinearLayout>
+
+</RelativeLayout>

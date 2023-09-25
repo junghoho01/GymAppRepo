@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WorkoutActivity"
-    android:orientation="vertical"
+    tools:context=".DetailWorkoutActivity"
     android:background="#343434">
-
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
@@ -19,44 +17,66 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Workouts"
+            android:text="Title"
             android:layout_marginLeft="10dp"
             android:padding="10dp"
             android:textSize="30dp"
-            android:textStyle="bold"
-            android:textColor="#55534c"/>
+            android:textColor="#55534c"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/btn_workout"
+    <ImageView
+        android:id="@+id/iv_workoutImage"
+        android:layout_height="200dp"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
         android:layout_below="@id/relativeLayout2"
-        android:text="Browse Workouts"
-        android:textColor="#ffe98a"
-        android:drawableLeft="@drawable/workout"
-        android:backgroundTint="#55534c"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
-
-    <Button
-        android:id="@+id/btn_mealsAndNutrition"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_below="@id/btn_workout"
-        android:text="Track Calories"
-        android:drawableLeft="@drawable/meals"
-        android:textColor="#ffe98a"
-        android:backgroundTint="#55534c"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/filtration_pic" />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/iv_workoutImage"
+        android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/btn_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="!"
+        android:textSize="30dp"
+        android:textColor="#55534c"
+        android:backgroundTint="#ffe98a"
+        android:layout_weight="1"
+        android:layout_margin="30dp"/>
+
+    <Button
+        android:id="@+id/btn_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_play_arrow_24"
+        android:textSize="30dp"
+        android:textColor="#55534c"
+        android:backgroundTint="#ffe98a"
+        android:layout_weight="1"
+        android:layout_margin="30dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:textSize="30dp"
+        android:textColor="#55534c"
+        android:backgroundTint="#ffe98a"
+        android:layout_weight="1"
+        android:layout_margin="30dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btm_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

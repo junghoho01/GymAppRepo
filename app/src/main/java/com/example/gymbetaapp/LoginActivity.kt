@@ -25,11 +25,19 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initialize Firebase
+        binding.tvForgotPass.setOnClickListener {
+            var intent = Intent(this, ForgotPassActivity::class.java)
+            startActivity(intent)
+        }
 
+        binding.tvRegisterAcc.setOnClickListener {
+            var intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.btnLogin.setOnClickListener {
-            validateAccess()
+            toMainActivity()
+//            validateAccess()
         }
     }
 
@@ -51,7 +59,6 @@ class LoginActivity : AppCompatActivity() {
                 val password = it.data?.get("password")?.toString()
 
                 if (enusername == username && enpassword == password){
-                    DialogUtils.showCustomDialog(this, "name")
                     toMainActivity()
                 }
                 else {
@@ -67,6 +74,7 @@ class LoginActivity : AppCompatActivity() {
     private fun toMainActivity() {
         val intent = Intent(this@LoginActivity, HomeActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
 }

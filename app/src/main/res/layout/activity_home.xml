@@ -19,11 +19,12 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Filtration"
             android:layout_marginLeft="10dp"
             android:padding="10dp"
+            android:text="Filtration"
             android:textSize="30dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#55534c"/>
 
     </RelativeLayout>
 

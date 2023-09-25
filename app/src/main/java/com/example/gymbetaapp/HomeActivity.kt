@@ -1,14 +1,18 @@
 package com.example.gymbetaapp
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.TextAppearanceSpan
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gymbetaapp.databinding.ActivityHomeBinding
 
@@ -20,9 +24,30 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvTitle.setShadowLayer(1.6f,1.5f,1.3f,Color.BLACK)
+        binding.btnWorkout.setOnClickListener {
+            toWorkout()
+        }
 
+    }
 
+    private fun toWorkout() {
+        var intent = Intent(this, WorkoutActivity::class.java)
+        startActivity(intent)
+    }
+
+    private var doubleBackToExitPressedOnce = false
+
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            finish() // Exit the app
+        } else {
+            this.doubleBackToExitPressedOnce = true
+            Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show()
+            Handler(Looper.getMainLooper()).postDelayed({
+                doubleBackToExitPressedOnce = false
+            }, 2000) // Reset the flag after 2 seconds
+        }
     }
 
 
