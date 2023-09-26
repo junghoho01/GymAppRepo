@@ -31,6 +31,7 @@ class WhatAge : AppCompatActivity() {
 
     private fun toHeight() {
         val intent = Intent(this@WhatAge, WhatHeightActivity::class.java)
+        intent.putExtra("AGE_KEY", binding.spinner.selectedItem.toString())
         startActivity(intent)
     }
 

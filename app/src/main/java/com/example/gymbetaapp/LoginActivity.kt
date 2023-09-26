@@ -36,29 +36,23 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-            toMainActivity()
-//            validateAccess()
+//            toMainActivity()
+            validateAccess()
         }
     }
 
     private fun validateAccess() {
-        var enusername = binding.etEmail.text.toString()
+        var enemail = binding.etEmail.text.toString()
         var enpassword = binding.etPassword.text.toString()
 
-        val userMap = hashMapOf(
-            "name" to "hello"
-        )
-
-        val userId = "user1"
-
-        val ref = db.collection("gym").document(userId)
+        val ref = db.collection("user").document(enemail)
         ref.get().addOnSuccessListener {
             if (it != null){
                 // Get data
-                val username = it.data?.get("username")?.toString()
-                val password = it.data?.get("password")?.toString()
+                val email = it.data?.get("email")?.toString()
+                val password = it.data?.get("pass")?.toString()
 
-                if (enusername == username && enpassword == password){
+                if (enemail == email && enpassword == password){
                     toMainActivity()
                 }
                 else {

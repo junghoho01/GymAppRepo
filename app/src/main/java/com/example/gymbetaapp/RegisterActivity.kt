@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.gymbetaapp.databinding.ActivityRegisterBinding
+import com.example.gymbetaapp.databinding.ActivityWhatAgeBinding
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -15,7 +16,11 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnRegister.setOnClickListener {
-            validation()
+
+            var intent = Intent(this, WhatAge::class.java)
+            startActivity(intent)
+
+        //            validation()
         }
     }
 

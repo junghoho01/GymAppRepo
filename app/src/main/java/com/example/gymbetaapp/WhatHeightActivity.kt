@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.example.gymbetaapp.databinding.ActivityWhatAgeBinding
 import com.example.gymbetaapp.databinding.ActivityWhatHeightBinding
 
 class WhatHeightActivity : AppCompatActivity() {
@@ -16,6 +15,9 @@ class WhatHeightActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWhatHeightBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val intent = intent
+        val age = intent.getStringExtra("AGE_KEY") // For string data
 
         // Create an array of numbers from "1" to "100"
         val items = (1..300).map { it.toString() }.toTypedArray()
@@ -26,12 +28,14 @@ class WhatHeightActivity : AppCompatActivity() {
         binding.spinner.onItemSelectedListener = MySpinnerItemSelectedListener()
 
         binding.btnSubmit.setOnClickListener {
-            toWeight()
+            toWeight(age)
         }
     }
 
-    private fun toWeight() {
+    private fun toWeight(age: String?) {
         val intent = Intent(this@WhatHeightActivity, WhatWeightActivity::class.java)
+        intent.putExtra("AGE_KEY", age)
+        intent.putExtra("HEIGHT_KEY", binding.spinner.selectedItem.toString())
         startActivity(intent)
     }
 

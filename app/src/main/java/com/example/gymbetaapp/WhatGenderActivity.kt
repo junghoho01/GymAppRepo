@@ -17,6 +17,10 @@ class WhatGenderActivity : AppCompatActivity() {
         binding = ActivityWhatGenderBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val intent = intent
+        val email = intent.getStringExtra("EMAIL_KEY") // For string data
+
+
         val items = arrayOf("Male", "Female")
 
         val adapter = ArrayAdapter<Any?>(this, R.layout.spinner_list, items)
@@ -25,12 +29,13 @@ class WhatGenderActivity : AppCompatActivity() {
         binding.spinner.onItemSelectedListener = MySpinnerItemSelectedListener()
 
         binding.btnSubmit.setOnClickListener {
-            toAgeActivity()
+            toAgeActivity(email)
         }
     }
 
-    private fun toAgeActivity() {
+    private fun toAgeActivity(email: String?) {
         val intent = Intent(this@WhatGenderActivity, WhatAge::class.java)
+
         startActivity(intent)
     }
 

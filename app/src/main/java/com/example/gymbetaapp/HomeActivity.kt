@@ -49,6 +49,4 @@ class HomeActivity : AppCompatActivity() {
             }, 2000) // Reset the flag after 2 seconds
         }
     }
-
-
 }
