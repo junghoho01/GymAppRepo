@@ -88,7 +88,8 @@ class ConfirmationActivity : AppCompatActivity() {
             "height" to "",
             "weight" to "",
             "chronicDisease" to "",
-            "status" to "1"
+            "status" to "1",
+            "caloriesBurnt" to "0"
             // 1 represent true
         )
 

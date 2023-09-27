@@ -24,6 +24,15 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val intent = intent
+        val email = intent.getStringExtra("EMAIL_KEY").toString() // For string data
+        var flag = intent.getStringExtra("FLAG_KEY").toString() // For string data
+
+        if (flag == "1"){
+            DialogUtils.showCustomDialog(this, "Register Successfully, Welcome !")
+            flag = "0"
+        }
+
         binding.btnWorkout.setOnClickListener {
             toWorkout()
         }

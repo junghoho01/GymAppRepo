@@ -19,6 +19,8 @@ class WhatWeightActivity : AppCompatActivity() {
         val intent = intent
         val age = intent.getStringExtra("AGE_KEY") // For string data
         val height = intent.getStringExtra("HEIGHT_KEY") // For string data
+        val email = intent.getStringExtra("EMAIL_KEY") // For string data
+        val gender = intent.getStringExtra("GENDER_KEY") // For string data
 
         // Create an array of numbers from "1" to "100"
         val items = (1..500).map { it.toString() }.toTypedArray()
@@ -29,14 +31,16 @@ class WhatWeightActivity : AppCompatActivity() {
         binding.spinner.onItemSelectedListener = MySpinnerItemSelectedListener()
 
         binding.btnSubmit.setOnClickListener {
-            toDiseaseActivity(age, height)
+            toDiseaseActivity(age, height, email, gender)
         }
     }
 
-    private fun toDiseaseActivity(age: String?, height: String?) {
+    private fun toDiseaseActivity(age: String?, height: String?, email: String?, gender: String?) {
         val intent = Intent(this@WhatWeightActivity, WhatChronicDiseaseActivity::class.java)
         intent.putExtra("AGE_KEY", age)
         intent.putExtra("HEIGHT_KEY", height)
+        intent.putExtra("EMAIL_KEY", email)
+        intent.putExtra("GENDER_KEY", gender)
         intent.putExtra("WEIGHT_KEY", binding.spinner.selectedItem.toString())
         startActivity(intent)
     }

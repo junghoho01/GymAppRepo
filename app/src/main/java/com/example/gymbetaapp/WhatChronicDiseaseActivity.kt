@@ -8,6 +8,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.gymbetaapp.databinding.ActivityWhatChronicDiseaseBinding
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class WhatChronicDiseaseActivity : AppCompatActivity() {
     private lateinit var binding : ActivityWhatChronicDiseaseBinding
@@ -20,6 +22,8 @@ class WhatChronicDiseaseActivity : AppCompatActivity() {
         val age = intent.getStringExtra("AGE_KEY") // For string data
         val height = intent.getStringExtra("HEIGHT_KEY") // For string data
         val weight = intent.getStringExtra("WEIGHT_KEY") // For string data
+        val email = intent.getStringExtra("EMAIL_KEY") // For string data
+        val gender = intent.getStringExtra("GENDER_KEY") // For string data
 
         val items = arrayOf(
             "None",
@@ -35,38 +39,48 @@ class WhatChronicDiseaseActivity : AppCompatActivity() {
         binding.spinner.onItemSelectedListener = MySpinnerItemSelectedListener()
 
         binding.btnSubmit.setOnClickListener {
-            addToFirebase(age, height, weight)
+            addToFirebase(age, height, weight, email, gender)
         }
     }
 
-    private fun addToFirebase(age: String?, height: String?, weight: String?) {
+    private fun addToFirebase(
+        age: String?,
+        height: String?,
+        weight: String?,
+        email: String?,
+        gender: String?
+    ) {
 
         // Chceck if value isEmpty()
-        if(age == null || height == null  || weight == null || binding.spinner.selectedItem.toString().isEmpty()){
+        if(age == null || height == null  || weight == null || binding.spinner.selectedItem.toString().isEmpty() || email == null || gender == null){
             DialogUtils.denyDialog(this, "Please complete all choices")
         } else {
+            var db = Firebase.firestore
 
             val updateMap = mapOf(
                 "age" to age,
                 "height" to height,
                 "weight" to weight,
-                "chronicDisease" to binding.spinner.selectedItem.toString()
+                "chronicDisease" to binding.spinner.selectedItem.toString(),
+                "gender" to gender
             )
 
             // need email...
-
+            db.collection("user").document(email).update(updateMap)
+                .addOnSuccessListener {
+                    // success
+                    toMainActivity(email)
+                }
         }
 
     }
 
-//    private fun toMainActivity(age: String?, height: String?, weight: String?) {
-//        val intent = Intent(this@WhatChronicDiseaseActivity, MainActivity::class.java)
-//        intent.putExtra("AGE_KEY", age)
-//        intent.putExtra("HEIGHT_KEY", height)
-//        intent.putExtra("WEIGHT_KEY", weight)
-//        intent.putExtra("DISEASE_KEY", binding.spinner.selectedItem.toString())
-//        startActivity(intent)
-//    }
+    private fun toMainActivity(email: String?) {
+        val intent = Intent(this@WhatChronicDiseaseActivity, HomeActivity::class.java)
+        intent.putExtra("FLAG_KEY", "1")
+        intent.putExtra("EMAIL_KEY", email)
+        startActivity(intent)
+    }
 
     inner class MySpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

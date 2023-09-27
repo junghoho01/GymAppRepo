@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         //Navigate to login
         binding.btnLogin.setOnClickListener {
             navigateLogin()

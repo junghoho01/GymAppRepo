@@ -45,23 +45,27 @@ class LoginActivity : AppCompatActivity() {
         var enemail = binding.etEmail.text.toString()
         var enpassword = binding.etPassword.text.toString()
 
-        val ref = db.collection("user").document(enemail)
-        ref.get().addOnSuccessListener {
-            if (it != null){
-                // Get data
-                val email = it.data?.get("email")?.toString()
-                val password = it.data?.get("pass")?.toString()
+        if (enemail.isEmpty() || enpassword.isEmpty()){
+            DialogUtils.denyDialog(this, "Please fill in email or password!")
+        } else {
+            val ref = db.collection("user").document(enemail)
+            ref.get().addOnSuccessListener {
+                if (it != null){
+                    // Get data
+                    val email = it.data?.get("email")?.toString()
+                    val password = it.data?.get("pass")?.toString()
 
-                if (enemail == email && enpassword == password){
-                    toMainActivity()
-                }
-                else {
-                    DialogUtils.denyDialog(this, "Invalid Credential")
+                    if (enemail == email && enpassword == password){
+                        toMainActivity()
+                    }
+                    else {
+                        DialogUtils.denyDialog(this, "Invalid Credential")
+                    }
                 }
             }
-        }
-        .addOnFailureListener {
-            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                .addOnFailureListener {
+                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 

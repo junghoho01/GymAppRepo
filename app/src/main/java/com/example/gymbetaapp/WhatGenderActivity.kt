@@ -35,7 +35,8 @@ class WhatGenderActivity : AppCompatActivity() {
 
     private fun toAgeActivity(email: String?) {
         val intent = Intent(this@WhatGenderActivity, WhatAge::class.java)
-
+        intent.putExtra("EMAIL_KEY", email)
+        intent.putExtra("GENDER_KEY", binding.spinner.selectedItem.toString())
         startActivity(intent)
     }
 

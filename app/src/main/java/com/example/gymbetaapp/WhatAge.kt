@@ -16,6 +16,10 @@ class WhatAge : AppCompatActivity() {
         binding = ActivityWhatAgeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val intent = intent
+        val email = intent.getStringExtra("EMAIL_KEY") // For string data
+        val gender = intent.getStringExtra("GENDER_KEY") // For string data
+
         // Create an array of numbers from "1" to "100"
         val items = (1..100).map { it.toString() }.toTypedArray()
 
@@ -25,13 +29,15 @@ class WhatAge : AppCompatActivity() {
         binding.spinner.onItemSelectedListener = MySpinnerItemSelectedListener()
 
         binding.btnSubmit.setOnClickListener {
-            toHeight()
+            toHeight(email, gender)
         }
     }
 
-    private fun toHeight() {
+    private fun toHeight(email: String?, gender: String?) {
         val intent = Intent(this@WhatAge, WhatHeightActivity::class.java)
         intent.putExtra("AGE_KEY", binding.spinner.selectedItem.toString())
+        intent.putExtra("EMAIL_KEY", email)
+        intent.putExtra("GENDER_KEY", gender)
         startActivity(intent)
     }
 

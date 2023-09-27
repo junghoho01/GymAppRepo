@@ -17,10 +17,9 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.btnRegister.setOnClickListener {
 
-            var intent = Intent(this, WhatAge::class.java)
-            startActivity(intent)
-
-        //            validation()
+//            var intent = Intent(this, WhatAge::class.java)
+//            startActivity(intent)
+            validation()
         }
     }
 

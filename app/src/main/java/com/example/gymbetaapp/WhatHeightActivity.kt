@@ -18,6 +18,8 @@ class WhatHeightActivity : AppCompatActivity() {
 
         val intent = intent
         val age = intent.getStringExtra("AGE_KEY") // For string data
+        val email = intent.getStringExtra("EMAIL_KEY") // For string data
+        val gender = intent.getStringExtra("GENDER_KEY") // For string data
 
         // Create an array of numbers from "1" to "100"
         val items = (1..300).map { it.toString() }.toTypedArray()
@@ -28,13 +30,15 @@ class WhatHeightActivity : AppCompatActivity() {
         binding.spinner.onItemSelectedListener = MySpinnerItemSelectedListener()
 
         binding.btnSubmit.setOnClickListener {
-            toWeight(age)
+            toWeight(age, email, gender)
         }
     }
 
-    private fun toWeight(age: String?) {
+    private fun toWeight(age: String?, email: String?, gender: String?) {
         val intent = Intent(this@WhatHeightActivity, WhatWeightActivity::class.java)
         intent.putExtra("AGE_KEY", age)
+        intent.putExtra("EMAIL_KEY", email)
+        intent.putExtra("GENDER_KEY", gender)
         intent.putExtra("HEIGHT_KEY", binding.spinner.selectedItem.toString())
         startActivity(intent)
     }
