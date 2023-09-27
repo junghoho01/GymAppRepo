@@ -36,7 +36,6 @@ class HomeActivity : AppCompatActivity() {
         binding.btnWorkout.setOnClickListener {
             toWorkout()
         }
-
     }
 
     private fun toWorkout() {

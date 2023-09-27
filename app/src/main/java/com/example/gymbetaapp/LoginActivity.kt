@@ -1,6 +1,7 @@
 package com.example.gymbetaapp
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -54,6 +55,12 @@ class LoginActivity : AppCompatActivity() {
                     // Get data
                     val email = it.data?.get("email")?.toString()
                     val password = it.data?.get("pass")?.toString()
+
+                    val sharedPref = getSharedPreferences("my_app_session", Context.MODE_PRIVATE)
+                    val editor = sharedPref.edit()
+
+                    editor.putString("user_email", email)
+                    editor.apply()
 
                     if (enemail == email && enpassword == password){
                         toMainActivity()

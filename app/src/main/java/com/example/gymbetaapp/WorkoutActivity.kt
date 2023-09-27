@@ -16,10 +16,21 @@ class WorkoutActivity : AppCompatActivity() {
         binding.btnWorkout.setOnClickListener {
             toBrowseWorkoutList()
         }
+
+        binding.btnTrackCalories.setOnClickListener {
+            toTrackCalories()
+        }
+    }
+
+    private fun toTrackCalories() {
+        var intent = Intent(this, TrackCaloriesLossActivity::class.java)
+        startActivity(intent)
     }
 
     private fun toBrowseWorkoutList() {
         var intent = Intent(this, BrowseWorkoutActivity::class.java)
         startActivity(intent)
     }
+
+
 }

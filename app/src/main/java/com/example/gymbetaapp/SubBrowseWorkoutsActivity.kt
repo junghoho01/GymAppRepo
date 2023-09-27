@@ -38,11 +38,13 @@ class SubBrowseWorkoutsActivity : AppCompatActivity() {
                 var title = absArrayList[position].title
                 var info = absArrayList[position].workoutDesc
                 var pic = absArrayList[position].workoutPic
+                var calories = absArrayList[position].workoutCalories
 //                Toast.makeText(this@SubBrowseWorkoutsActivity, pic, Toast.LENGTH_SHORT).show()
                 var intent = Intent(this@SubBrowseWorkoutsActivity, DetailWorkoutActivity::class.java)
                 intent.putExtra("title", title)
                 intent.putExtra("info", info)
                 intent.putExtra("pic", pic)
+                intent.putExtra("CALORIES_KEY", calories)
                 startActivity(intent)
             }
 

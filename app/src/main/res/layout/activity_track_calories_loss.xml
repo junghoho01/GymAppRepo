@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailWorkoutActivity"
+    tools:context=".TrackCaloriesLossActivity"
+    android:orientation="vertical"
     android:background="#343434">
 
     <RelativeLayout
@@ -17,67 +19,114 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
             android:layout_marginLeft="10dp"
             android:padding="10dp"
+            android:text="Track Calories Loss"
             android:textSize="30dp"
-            android:textColor="#55534c"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#55534c"/>
 
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/iv_workoutImage"
-        android:layout_height="200dp"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_totalLoss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/relativeLayout2"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/filtration_pic" />
+        android:text="Daily Total Calories Loss"
+        android:layout_margin="15dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        />
 
     <LinearLayout
+        android:id="@+id/LinearLayoutLR"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/iv_workoutImage"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_totalLoss"
         android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="!"
-        android:textSize="30dp"
-        android:textColor="#55534c"
-        android:backgroundTint="#ffe98a"
-        android:layout_weight="1"
-        android:layout_margin="30dp"/>
+        <TextView
+            android:id="@+id/tv_calorieLoss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_totalLoss"
+            android:layout_margin="15dp"
+            android:layout_weight="0"
+            android:text="Calorie Loss"
+            android:textColor="#b0a36d"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btn_video"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/baseline_play_arrow_24"
-        android:textSize="30dp"
-        android:textColor="#55534c"
-        android:backgroundTint="#ffe98a"
-        android:layout_weight="1"
-        android:layout_margin="30dp"/>
-
-    <Button
-        android:id="@+id/btn_addCalories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:textSize="30dp"
-        android:textColor="#55534c"
-        android:backgroundTint="#ffe98a"
-        android:layout_weight="1"
-        android:layout_margin="30dp"/>
+        <TextView
+            android:id="@+id/tv_compare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_totalLoss"
+            android:text="650 kcal / 1200 kcal"
+            android:layout_margin="15dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:gravity="right"
+            />
 
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/LinearLayoutLR"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#55534c"
+        android:background="#55534c"
+        android:progressTint="#008000"
+        android:scaleY="6"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Edit Calories"
+        android:layout_below="@id/progressBar"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#ffe98a"/>
+
+    <TextView
+        android:id="@+id/tv_dailyTarget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login"
+        android:text="Daily Target"
+        android:layout_margin="15dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_weight="1"
+        android:gravity="right"
+        />
+
+    <TextView
+        android:id="@+id/tv_toLoss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_dailyTarget"
+        android:text="Calories Loss: 1200kcal"
+        android:layout_marginLeft="15dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_weight="1"
+        android:gravity="right"
+        />
+
     <LinearLayout
-        android:id="@+id/btm_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

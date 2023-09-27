@@ -7,6 +7,8 @@ import android.widget.Toast
 import com.example.gymbetaapp.databinding.ActivityConfirmationBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Random
 
 class ConfirmationActivity : AppCompatActivity() {
@@ -79,6 +81,9 @@ class ConfirmationActivity : AppCompatActivity() {
     private fun insertDataToFirebase(email: String, username: String, pass: String) {
         var db = Firebase.firestore
 
+        val currentDate = Date()
+        val formattedDate = formatDate(currentDate, "yyyy-MM-dd")
+
         val userMap = hashMapOf(
             "email" to email,
             "username" to username,
@@ -89,7 +94,9 @@ class ConfirmationActivity : AppCompatActivity() {
             "weight" to "",
             "chronicDisease" to "",
             "status" to "1",
-            "caloriesBurnt" to "0"
+            "caloriesBurnt" to "0",
+            "caloriesDate" to formattedDate
+
             // 1 represent true
         )
 
@@ -103,5 +110,10 @@ class ConfirmationActivity : AppCompatActivity() {
                 // Fail
             }
 
+    }
+
+    fun formatDate(date: Date, format: String): String {
+        val dateFormat = SimpleDateFormat(format)
+        return dateFormat.format(date)
     }
 }

@@ -1,11 +1,11 @@
 package com.example.gymbetaapp
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import android.widget.VideoView
 import com.example.gymbetaapp.databinding.ActivityDetailWorkoutBinding
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
@@ -24,6 +24,15 @@ class DetailWorkoutActivity : AppCompatActivity() {
         val info = intent.getStringExtra("info").toString()
         val title = intent.getStringExtra("title").toString()
         val pic = intent.getStringExtra("pic").toString()
+        val calories = intent.getStringExtra("CALORIES_KEY").toString()
+
+//       Toast.makeText(this, calories, Toast.LENGTH_SHORT).show()
+
+        // Retrieve data from shared preferences
+        val sharedPref = getSharedPreferences("my_app_session", Context.MODE_PRIVATE)
+        val userEmail = sharedPref.getString("user_email", null).toString()
+
+//        Toast.makeText(this, userEmail, Toast.LENGTH_SHORT).show()
 
         binding.tvTitle.text = title
 
@@ -33,6 +42,10 @@ class DetailWorkoutActivity : AppCompatActivity() {
 
         binding.btnVideo.setOnClickListener {
             DialogUtils.videoDialog(this, pic)
+        }
+
+        binding.btnAddCalories.setOnClickListener {
+            DialogUtils.caloriesDialog(this, userEmail, calories)
         }
 
         showImage(pic)
