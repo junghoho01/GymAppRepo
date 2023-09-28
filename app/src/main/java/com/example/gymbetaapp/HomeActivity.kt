@@ -36,6 +36,15 @@ class HomeActivity : AppCompatActivity() {
         binding.btnWorkout.setOnClickListener {
             toWorkout()
         }
+
+        binding.btnMealsAndNutrition.setOnClickListener {
+            toMealsAndNutrition()
+        }
+    }
+
+    private fun toMealsAndNutrition() {
+        var intent = Intent(this, MealsAndNutritionActivity::class.java)
+        startActivity(intent)
     }
 
     private fun toWorkout() {

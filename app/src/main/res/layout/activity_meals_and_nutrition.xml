@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WorkoutActivity"
+    tools:context=".MealsAndNutritionActivity"
     android:orientation="vertical"
     android:background="#343434">
-
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
@@ -19,7 +19,7 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Workouts"
+            android:text="Meals and Nutritions"
             android:layout_marginLeft="10dp"
             android:padding="10dp"
             android:textSize="30dp"
@@ -27,6 +27,7 @@
             android:textColor="#55534c"/>
 
     </RelativeLayout>
+
 
     <ImageView
         android:id="@+id/img_logo"
@@ -36,15 +37,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:layout_below="@id/relativeLayout2"/>
-
     <Button
         android:id="@+id/btn_workout"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_below="@id/img_logo"
-        android:text="Browse Workouts"
+        android:text="Search Recipe"
         android:textColor="#ffe98a"
-        android:drawableLeft="@drawable/workout"
+        android:drawableLeft="@drawable/ic_baseline_search_24"
         android:backgroundTint="#55534c"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -52,12 +52,26 @@
         android:layout_marginRight="20dp"/>
 
     <Button
-        android:id="@+id/btn_trackCalories"
+        android:id="@+id/btn_mealsNutritionAnalysis"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_below="@id/btn_workout"
-        android:text="Track Calories"
-        android:drawableLeft="@drawable/meals"
+        android:text="Meals Nutrition Analysis"
+        android:drawableLeft="@drawable/ic_baseline_analytics_24"
+        android:textColor="#ffe98a"
+        android:backgroundTint="#55534c"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <Button
+        android:id="@+id/btn_trackNutritionGain"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/btn_mealsNutritionAnalysis"
+        android:text="Track Nutrition Gain"
+        android:drawableLeft="@drawable/ic_baseline_fastfood_24"
         android:textColor="#ffe98a"
         android:backgroundTint="#55534c"
         android:layout_centerHorizontal="true"
