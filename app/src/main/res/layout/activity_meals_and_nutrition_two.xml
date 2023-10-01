@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TrackCaloriesLossActivity"
+    tools:context=".MealsAndNutritionTwoActivity"
     android:orientation="vertical"
     android:background="#343434">
 
@@ -19,114 +19,66 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Meals and Nutritions"
             android:layout_marginLeft="10dp"
             android:padding="10dp"
-            android:text="Track Calories Loss"
             android:textSize="30dp"
             android:textStyle="bold"
             android:textColor="#55534c"/>
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tv_totalLoss"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/relativeLayout2"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:text="Daily Total Calories Loss"
-        android:textSize="30sp"
-        android:textStyle="bold" />
 
-    <LinearLayout
-        android:id="@+id/LinearLayoutLR"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_totalLoss"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tv_calorieLoss"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_totalLoss"
-            android:layout_margin="15dp"
-            android:layout_weight="0"
-            android:text="Calorie Loss"
-            android:textColor="#b0a36d"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_compare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_totalLoss"
-            android:text="650 kcal / 1200 kcal"
-            android:layout_margin="15dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:gravity="right"
-            />
-
-    </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_below="@id/LinearLayoutLR"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:backgroundTint="#55534c"
-        android:background="#55534c"
-        android:progressTint="#008000"
-        android:scaleY="6"/>
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:src="@drawable/filtration_pic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/relativeLayout2"/>
 
     <Button
-        android:id="@+id/btn_login"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Edit Calories"
-        android:layout_below="@id/progressBar"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="15dp"
-        android:textColor="@color/black"
-        android:backgroundTint="#ffe98a"/>
+        android:id="@+id/btn_searchRecipe"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/img_logo"
+        android:text="Search Recipe"
+        android:textColor="#ffe98a"
+        android:drawableLeft="@drawable/ic_baseline_search_24"
+        android:backgroundTint="#55534c"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
-    <TextView
-        android:id="@+id/tv_dailyTarget"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btn_login"
-        android:text="Daily Target"
-        android:layout_margin="15dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:layout_weight="1"
-        android:gravity="right"
-        />
+    <Button
+        android:id="@+id/btn_mealsNutritionAnalysis"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/btn_searchRecipe"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#55534c"
+        android:drawableLeft="@drawable/ic_baseline_analytics_24"
+        android:text="Meals Nutrition Analysis"
+        android:textColor="#ffe98a" />
 
-    <TextView
-        android:id="@+id/tv_toLoss"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_dailyTarget"
-        android:text="Calories Loss: 1200kcal"
-        android:layout_marginLeft="15dp"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_weight="1"
-        android:gravity="right"
-        />
+    <Button
+        android:id="@+id/btn_trackNutritionGain"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/btn_mealsNutritionAnalysis"
+        android:text="Track Nutrition Gain"
+        android:drawableLeft="@drawable/ic_baseline_fastfood_24"
+        android:textColor="#ffe98a"
+        android:backgroundTint="#55534c"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

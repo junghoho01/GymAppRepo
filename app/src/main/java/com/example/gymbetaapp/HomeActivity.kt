@@ -43,7 +43,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun toMealsAndNutrition() {
-        var intent = Intent(this, MealsAndNutritionActivity::class.java)
+        var intent = Intent(this, MealsAndNutritionTwoActivity::class.java)
         startActivity(intent)
     }
 

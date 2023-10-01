@@ -6,40 +6,39 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AbsAdapter(private val absList : ArrayList<Abs>) : RecyclerView.Adapter<AbsAdapter.MyViewHolder>() {
+class RecipeAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.Adapter<RecipeAdapter.MyViewHolder>() {
 
     private lateinit var mListener : onItemClickListener
 
     interface onItemClickListener{
-        fun onItemClick(position :Int)
+        fun onItemClick(position: Int)
     }
 
     fun setOnItemClickListener(listener: onItemClickListener){
         mListener = listener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AbsAdapter.MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.workout_list,parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeAdapter.MyViewHolder {
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recipe_list,parent, false)
         return MyViewHolder(itemView, mListener)
     }
 
-    override fun onBindViewHolder(holder: AbsAdapter.MyViewHolder, position: Int) {
-        val abs : Abs = absList[position]
-        holder.title.text = abs.title
+    override fun onBindViewHolder(holder: RecipeAdapter.MyViewHolder, position: Int) {
+        val recipe : Recipe = recipeList[position]
+        holder.name.text = recipe.name
     }
 
     override fun getItemCount(): Int {
-        return absList.size
+        return recipeList.size
     }
 
     class MyViewHolder(itemView : View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
-        val title : TextView = itemView.findViewById(R.id.tv_title)
+        val name : TextView = itemView.findViewById(R.id.tv_foodName)
 
         init {
             itemView.setOnClickListener{
                 listener.onItemClick(adapterPosition)
             }
         }
-
     }
 }

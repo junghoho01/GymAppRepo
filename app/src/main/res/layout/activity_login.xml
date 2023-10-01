@@ -50,6 +50,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:paddingLeft="15dp"
+        android:textColorHint="@color/black"
         android:layout_below="@id/tv_emailAddress"
         android:background="@drawable/box_edittext_background"/>
 
@@ -67,16 +68,17 @@
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:textColor="@color/black"
-        android:hint="123^*asda@"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:paddingLeft="15dp"
         android:layout_below="@id/tv_password"
-        android:background="@drawable/box_edittext_background"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/box_edittext_background"
+        android:ems="10"
+        android:hint="123^*asda@"
+        android:inputType="textPassword"
+        android:textColorHint="@color/black"
+        android:paddingLeft="15dp"
+        android:textColor="@color/black" />
 
     <Button
         android:id="@+id/btn_login"
