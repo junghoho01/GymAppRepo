@@ -24,7 +24,7 @@ class MealsAndNutritionTwoActivity : AppCompatActivity() {
     }
 
     private fun toTestAPI() {
-        intent = Intent(this, TestAPI::class.java)
+        intent = Intent(this, NutritionAnalysisActivity::class.java)
         startActivity(intent)
     }
 
