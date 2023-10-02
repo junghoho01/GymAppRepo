@@ -1,12 +1,16 @@
 package com.example.gymbetaapp
 
+import android.app.ProgressDialog
 import android.content.Context
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.gymbetaapp.databinding.ActivityRecipeBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 
 class RecipeActivity : AppCompatActivity() {
 
@@ -21,14 +25,6 @@ class RecipeActivity : AppCompatActivity() {
         val intent = intent
         val name = intent.getStringExtra("FOODNAME_KEY") // For string data
 
-//        binding.tvNutrition.text = """
-//          PROTEIN          97 g      Cholesterol      111 mg
-//          FAT                  155 g      Sodium             596 mg
-//          CARB              138 g      Calcium              86 mg
-//                                                    Magnesium        94 mg
-//                                                    Potassium        912 mg
-//                                                    Iron                          3 mg
-//        """.trimIndent()
         setDisplay(name)
     }
 
@@ -61,6 +57,17 @@ class RecipeActivity : AppCompatActivity() {
                     binding.tvServing.text = "- $formattedList"
 
                     // Nutrition
+                    binding.tvProtein.text = protein + " g"
+                    binding.tvFat.text = fat + " g"
+                    binding.tvCarb.text = carb + " g"
+                    binding.tvCholesterol.text = cholesterol + " mg"
+                    binding.tvSodium.text = sodium  + " mg"
+                    binding.tvCalcium.text = calcium  + " mg"
+                    binding.tvMagnesium.text = magnesium  + " mg"
+                    binding.tvPotassium.text = potassium  + " mg"
+                    binding.tvIron.text = iron  + " mg"
+
+                    showImage(pictureName)
 
                 }
             }.addOnFailureListener {
@@ -68,5 +75,31 @@ class RecipeActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun showImage(pictureName: String?) {
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("Fetching image...")
+        progressDialog.setCancelable(false)
+        progressDialog.show()
+
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/$pictureName.jpg")
+        val localfile = File.createTempFile("tempFile", "jpg")
+        storageRef.getFile(localfile).addOnSuccessListener {
+
+            if(progressDialog.isShowing){
+                progressDialog.dismiss()
+            }
+
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            binding.ivFoodImage.setImageBitmap(bitmap)
+        }.addOnFailureListener {
+
+            if(progressDialog.isShowing){
+                progressDialog.dismiss()
+            }
+
+            Toast.makeText(this, "Error Retrieve Image", Toast.LENGTH_SHORT).show()
+        }
     }
 }

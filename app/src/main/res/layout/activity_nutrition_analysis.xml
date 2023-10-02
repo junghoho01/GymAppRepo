@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NutritionAnalysisActivity"
+    android:orientation="vertical"
+    android:background="#343434">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffe98a">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nutrition Analysis"
+            android:layout_marginLeft="10dp"
+            android:padding="10dp"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="#55534c"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_below="@id/relativeLayout2"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <EditText
+            android:id="@+id/et_analyseContent"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:hint="100g chicken breast"
+            android:paddingLeft="15dp"
+            android:background="@drawable/box_edittext_background"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_analyse"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:text="Search"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/black"
+            android:backgroundTint="#ffe98a" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

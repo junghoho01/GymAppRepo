@@ -82,144 +82,261 @@
         android:textColor="#55534c"
         android:padding="10dp"/>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    <!-- ScrollView to enable scrolling -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@id/tv_serving"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="15dp"
-        android:background="@color/white"
-        android:textColor="#55534c"
-        android:padding="10dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_above="@id/btm_navigation"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true"
+        android:layout_marginTop="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_serving"
-            android:layout_marginTop="10dp"
-            android:text="Protein"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#55534c"
-            android:paddingBottom="4dp"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/tv_protein"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_serving"
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
-            android:text="97 g"
-            android:gravity="right"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#55534c"
-            android:paddingBottom="4dp"
-            android:layout_weight="1"/>
+            android:layout_marginEnd="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:background="@color/white">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_serving"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"
-            android:text="Cholesterol"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#55534c"
-            android:paddingBottom="4dp"
-            android:layout_weight="1"/>
+            <TableRow android:paddingTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="PROTEIN"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#55534c" />
+                <TextView
+                    android:id="@+id/tv_protein"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Player"
+                    android:textSize="15sp"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:textColor="#55534c"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cholesterol"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#55534c" />
+                <TextView
+                    android:id="@+id/tv_cholesterol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Player"
+                    android:textSize="15sp"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:textColor="#55534c"/>
+            </TableRow>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_serving"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"
-            android:text="111 mg"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#55534c"
-            android:paddingBottom="4dp"
-            android:gravity="right"
-            android:layout_weight="1"/>
-    </LinearLayout>
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="FAT"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#55534c" />
+                <TextView
+                    android:id="@+id/tv_fat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Player"
+                    android:textSize="15sp"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:textColor="#55534c"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sodium"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#55534c" />
+                <TextView
+                    android:id="@+id/tv_sodium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Player"
+                    android:textSize="15sp"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:textColor="#55534c"/>
+            </TableRow>
 
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="CARB"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#55534c" />
+                <TextView
+                    android:id="@+id/tv_carb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Player"
+                    android:textSize="15sp"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:textColor="#55534c"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Calcium"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#55534c" />
+                <TextView
+                    android:id="@+id/tv_calcium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Player"
+                    android:textSize="15sp"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:textColor="#55534c"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#55534c" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:textColor="#55534c"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Magnesium"
+                    android:textColor="#55534c"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_magnesium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Player"
+                    android:textSize="15sp"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:textColor="#55534c"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#55534c" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:textColor="#55534c"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Potassium"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#55534c" />
+                <TextView
+                    android:id="@+id/tv_potassium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Player"
+                    android:textSize="15sp"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:textColor="#55534c"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#55534c" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:textColor="#55534c"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Iron"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#55534c" />
+                <TextView
+                    android:id="@+id/tv_iron"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Player"
+                    android:textSize="15sp"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:textColor="#55534c"/>
+            </TableRow>
+
+        </TableLayout>
+
+    </ScrollView>
+
+    <!--    Bottom navigation  -->
     <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/linearLayout3"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@color/white"
-        android:textColor="#55534c"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_serving"
-            android:text="Protein"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#55534c"
-            android:paddingBottom="4dp"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/tv_fat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_serving"
-            android:layout_marginStart="15dp"
-            android:text="97 g"
-            android:gravity="right"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#55534c"
-            android:paddingBottom="4dp"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_serving"
-            android:layout_marginStart="15dp"
-            android:text="Cholesterol"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#55534c"
-            android:paddingBottom="4dp"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/tv_sodium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_serving"
-            android:layout_marginStart="15dp"
-            android:text="111 mg"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#55534c"
-            android:paddingBottom="4dp"
-            android:gravity="right"
-            android:layout_weight="1"/>
-    </LinearLayout>
-
-
-    <LinearLayout
+        android:id="@+id/btm_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -283,5 +400,6 @@
             android:src="@drawable/baseline_person_24" />
 
     </LinearLayout>
+    <!--    Bottom navigation END -->
 
 </RelativeLayout>

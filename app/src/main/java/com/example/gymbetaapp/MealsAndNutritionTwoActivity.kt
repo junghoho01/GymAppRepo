@@ -17,6 +17,15 @@ class MealsAndNutritionTwoActivity : AppCompatActivity() {
         binding.btnSearchRecipe.setOnClickListener{
             toSearchRecipe()
         }
+
+        binding.btnMealsNutritionAnalysis.setOnClickListener {
+            toTestAPI()
+        }
+    }
+
+    private fun toTestAPI() {
+        intent = Intent(this, TestAPI::class.java)
+        startActivity(intent)
     }
 
     private fun toSearchRecipe() {
