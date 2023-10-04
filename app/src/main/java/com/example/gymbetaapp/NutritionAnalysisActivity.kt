@@ -2,10 +2,8 @@ package com.example.gymbetaapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.example.gymbetaapp.databinding.ActivityNutritionAnalysisBinding
-import org.json.JSONArray
-import org.json.JSONObject
+import kotlin.math.roundToInt
 
 class NutritionAnalysisActivity : AppCompatActivity() {
 
@@ -23,18 +21,6 @@ class NutritionAnalysisActivity : AppCompatActivity() {
     }
 
     private fun analyseFood(ingredients: String) {
-//        // Split the ingredients by ", " and trim whitespace
-//        val ingredientList = ingredients.split(",\n").map { it.trim() }
-//
-//        // Create a JSON array of ingredients
-//        val jsonArray = JSONArray()
-//        for (ingredient in ingredientList) {
-//            jsonArray.put(ingredient)
-//        }
-//
-//        // Log the JSON data before making the API request
-//        Log.d("API Request", jsonArray.toString())
-
         val edamamApiClient = EdamamApiClient()
         edamamApiClient.fetchNutritionData(ingredients, object : NutritionCallback {
             override fun onSuccess(response: NutritionResponse?) {
@@ -43,18 +29,146 @@ class NutritionAnalysisActivity : AppCompatActivity() {
                     println("Calories: ${response.calories}")
                     println("Total Nutrients: ${response.totalNutrients}")
                     println("Total Daily: ${response.totalDaily}")
-//                    binding.tvCalories.text = response.calories.toString()
 
-                    // Retrieve total FAT
+                    binding.tvCalories.text = response.calories.toString()
+
+                    // Access fat
                     val totalFat = response.totalNutrients["FAT"]
-                    if (totalFat != null) {
-                        val fatLabel = totalFat.label
-                        val fatQuantity = totalFat.quantity
-                        val fatUnit = totalFat.unit
-                        println("Total Fat: $fatQuantity $fatUnit ($fatLabel)")
+                    val dailyFat = response.totalDaily["FAT"]
 
-                        // Now, you can set the total fat to your TextView
-                        binding.tvCalories.text = "$fatQuantity $fatUnit"
+                    // Access saturated fat and trans fat
+                    val saturatedFat = response.totalNutrients["FASAT"]
+                    val dailySaturatedFat = response.totalDaily["FASAT"]
+                    val transFat = response.totalNutrients["FATRN"]
+                    val dailyTransFat = response.totalDaily["FATRN"]
+
+                    // Access cholesterol
+                    val totalCholesterol = response.totalNutrients["CHOLE"]
+                    val dailyValueCholesterol = response.totalDaily["CHOLE"]
+
+                    // Access sodium
+                    val sodium = response.totalNutrients["NA"]
+                    val dailyValueSodium = response.totalDaily["NA"]
+
+                    // Access Total Carbohydrate
+                    val totalCarbohydrate = response.totalNutrients["CHOCDF"]
+                    val dailyValueCarbohydrate = response.totalDaily["CHOCDF"]
+
+                    // Access Dietary Fiber
+                    val dietaryFiber = response.totalNutrients["FIBTG"]
+                    val dailyValueFiber = response.totalDaily["FIBTG"]
+
+                    // Access Total Sugars
+                    val totalSugars = response.totalNutrients["SUGAR"]
+                    val dailyValueSugars = response.totalDaily["SUGAR"]
+
+                    // Access Includes - Added Sugars
+                    val addedSugars = response.totalNutrients["SUGAR.added"]
+                    val dailyValueAddedSugars = response.totalDaily["SUGAR.added"]
+
+                    // Access Total Protein
+                    val totalProtein = response.totalNutrients["PROCNT"]
+                    val dailyProtein = response.totalDaily["PROCNT"]
+
+                    // Access Vitamin D
+                    val vitaminD = response.totalNutrients["VITD"]
+                    val dailyVitaminD = response.totalDaily["VITD"]
+
+                    // Access Calcium
+                    val calcium = response.totalNutrients["CA"]
+                    val dailyCalcium = response.totalDaily["CA"]
+
+                    // Access Iron
+                    val iron = response.totalNutrients["FE"]
+                    val dailyIron = response.totalDaily["FE"]
+
+                    // Access Potassium
+                    val potassium = response.totalNutrients["K"]
+                    val dailyPotassium = response.totalDaily["K"]
+
+                    if (totalFat != null) {
+                        binding.tvTotalFat.text = "Total Fat ${totalFat.quantity.roundToInt()} ${totalFat.unit}"
+                        binding.tvTotalFatDailyValue.text = "${dailyFat?.quantity?.roundToInt() ?: 0}%"
+                    }
+
+                    if (saturatedFat != null) {
+                        binding.tvSaturatedFat.text = "Saturated Fat ${saturatedFat.quantity.roundToInt() } ${saturatedFat.unit}"
+                        binding.tvSaturatedFatDailyValue.text = "${dailySaturatedFat?.quantity?.roundToInt() ?: 0}%"
+                    }
+
+                    if (transFat != null) {
+                        binding.tvTransFat.text = "Trans Fat ${transFat.quantity.roundToInt()} ${transFat.unit}"
+                        binding.tvTransFatDailyValue.text = "${dailyTransFat?.quantity?.roundToInt() ?: 0}%"
+                    }
+
+                    if (totalCholesterol != null) {
+                        binding.tvTotalCholesterol.text = "Total Cholesterol ${totalCholesterol.quantity.roundToInt()} ${totalCholesterol.unit}"
+                        binding.tvTotalCholesterolDailyValue.text = "${dailyValueCholesterol?.quantity?.roundToInt() ?: 0}%"
+                    }
+
+                    if (sodium != null) {
+                        binding.tvTotalSodium.text = "Sodium ${sodium.quantity.roundToInt()} ${sodium.unit}"
+                        binding.tvTotalSodiumDailyValue.text = "${dailyValueSodium?.quantity?.roundToInt() ?: 0}%"
+                    }
+
+                    if (totalCarbohydrate != null) {
+                        binding.tvTotalCarbohydrate.text = "Total Carbohydrate ${totalCarbohydrate.quantity.roundToInt()} ${totalCarbohydrate.unit}"
+                        binding.tvTotalCarbohydrateDailyValue.text = "${dailyValueCarbohydrate?.quantity?.roundToInt() ?: 0}%"
+                    }
+
+                    if (dietaryFiber != null) {
+                        binding.tvDietaryFiber.text = "Dietary Fiber ${dietaryFiber.quantity.roundToInt()} ${dietaryFiber.unit}"
+                        binding.tvDietaryFiberDailyValue.text = "${dailyValueFiber?.quantity?.roundToInt() ?: 0}%"
+                    }
+
+                    if (totalSugars != null) {
+                        binding.tvTotalSugars.text = "Total Sugars ${totalSugars.quantity.roundToInt()} ${totalSugars.unit}"
+                        binding.tvTotalSugarsDailyValue.text = "${dailyValueSugars?.quantity?.roundToInt() ?: 0}%"
+                    }
+
+                    if (addedSugars != null) {
+                        binding.tvAddedSugars.text = "Includes - Added Sugars ${addedSugars.quantity.roundToInt()} ${addedSugars.unit}"
+                        binding.tvAddedSugarsDailyValue.text = "${dailyValueAddedSugars?.quantity?.roundToInt() ?: 0}%"
+                    }
+
+                    if (totalProtein != null) {
+                        binding.tvTotalProtein.text = "Total Protein ${totalProtein.quantity.roundToInt()} ${totalProtein.unit}"
+                    }
+
+                    if (dailyProtein != null) {
+                        binding.tvTotalProteinDailyValue.text = "${dailyProtein.quantity.roundToInt()}%"
+                    }
+
+                    if (vitaminD != null) {
+                        binding.tvVitaminD.text = "Vitamin D ${vitaminD.quantity.roundToInt()} ${vitaminD.unit}"
+                    }
+
+                    if (dailyVitaminD != null) {
+                        binding.tvVitaminDDailyValue.text = "${dailyVitaminD.quantity.roundToInt()}%"
+                    }
+
+                    if (calcium != null) {
+                        binding.tvCalcium.text = "Calcium ${calcium.quantity.roundToInt()} ${calcium.unit}"
+                    }
+
+                    if (dailyCalcium != null) {
+                        binding.tvCalciumDailyValue.text = "${dailyCalcium.quantity.roundToInt()}%"
+                    }
+
+                    if (iron != null) {
+                        binding.tvIron.text = "Iron ${iron.quantity.roundToInt()} ${iron.unit}"
+                    }
+
+                    if (dailyIron != null) {
+                        binding.tvIronDailyValue.text = "${dailyIron.quantity.roundToInt()}%"
+                    }
+
+                    if (potassium != null) {
+                        binding.tvPotassium.text = "Potassium ${potassium.quantity.roundToInt()} ${potassium.unit}"
+                    }
+
+                    if (dailyPotassium != null) {
+                        binding.tvPotassiumDailyValue.text = "${dailyPotassium.quantity.roundToInt()}%"
                     }
                 }
             }
