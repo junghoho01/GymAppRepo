@@ -61,5 +61,17 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tv_calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Test"
+        android:textSize="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/linearLayout2"/>
+
 
 </RelativeLayout>
