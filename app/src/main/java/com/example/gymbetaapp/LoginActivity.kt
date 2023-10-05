@@ -37,8 +37,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-            toMainActivity()
-            //validateAccess()
+            //toMainActivity()
+            validateAccess()
         }
     }
 

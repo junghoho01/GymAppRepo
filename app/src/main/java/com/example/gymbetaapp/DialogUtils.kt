@@ -1,13 +1,16 @@
 package com.example.gymbetaapp
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
+import androidx.core.content.ContextCompat.startActivity
 import com.example.gymbetaapp.databinding.ActivityDetailWorkoutBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -183,6 +186,61 @@ object DialogUtils {
         val btnClose = dialog.findViewById<Button>(R.id.btnDeniedClose)
         btnClose.setOnClickListener {
             dialog.dismiss()
+        }
+
+        // Set the current dialog as the previous dialog
+        previousDialog = dialog
+
+        dialog.show()
+    }
+
+    fun editCaloriesDialog(context: Context, email: String, callback: () -> Unit) {
+        var db = Firebase.firestore
+        //Dismiss the previous dialog if it exists
+        previousDialog?.dismiss()
+
+        val dialog = Dialog(context)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setContentView(R.layout.custom_editcalories)
+        val etCalories = dialog.findViewById<EditText>(R.id.et_calories)
+        val btnEdit = dialog.findViewById<Button>(R.id.btnEditCalories)
+        btnEdit.setOnClickListener {
+            db.collection("user").document(email).update("caloriesBurnt", etCalories.text.toString())
+            dialog.dismiss()
+
+            callback()
+        }
+
+        // Set the current dialog as the previous dialog
+        previousDialog = dialog
+
+        dialog.show()
+    }
+
+    fun editGainsDialog(context: Context, email: String, callback: () -> Unit) {
+        var db = Firebase.firestore
+        //Dismiss the previous dialog if it exists
+        previousDialog?.dismiss()
+
+        val dialog = Dialog(context)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setContentView(R.layout.custom_editnutrition)
+        val etCalories = dialog.findViewById<EditText>(R.id.et_calories)
+        val etProtein = dialog.findViewById<EditText>(R.id.et_protein)
+        val btnEdit = dialog.findViewById<Button>(R.id.btnEditCalories)
+        btnEdit.setOnClickListener {
+
+            val data = mapOf(
+                "caloriesGained" to etCalories.text.toString(),
+                "proteinGained" to etProtein.text.toString()
+            )
+
+            db.collection("user").document(email).update(data)
+
+            dialog.dismiss()
+            callback()
         }
 
         // Set the current dialog as the previous dialog

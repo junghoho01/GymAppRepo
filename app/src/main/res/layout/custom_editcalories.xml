@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Edit Calories"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_emailAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calories *"
+                android:textSize="15dp"
+                android:layout_below="@id/textView"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/et_calories"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:hint="1000"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:paddingLeft="15dp"
+                android:textColorHint="@color/black"
+                android:layout_below="@id/tv_emailAddress"
+                android:background="@drawable/box_edittext_background"/>
+
+            <Button
+                android:id="@+id/btnEditCalories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/black"
+                android:backgroundTint="#ffe98a"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

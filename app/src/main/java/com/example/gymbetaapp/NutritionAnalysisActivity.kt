@@ -1,7 +1,9 @@
 package com.example.gymbetaapp
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import com.example.gymbetaapp.databinding.ActivityNutritionAnalysisBinding
 import kotlin.math.roundToInt
 
@@ -17,6 +19,8 @@ class NutritionAnalysisActivity : AppCompatActivity() {
         binding.btnAnalyse.setOnClickListener {
             var ingredients = binding.etAnalyseContent.text.toString()
             analyseFood(ingredients)
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, InputMethodManager.SHOW_FORCED)
         }
     }
 
@@ -170,6 +174,8 @@ class NutritionAnalysisActivity : AppCompatActivity() {
                     if (dailyPotassium != null) {
                         binding.tvPotassiumDailyValue.text = "${dailyPotassium.quantity.roundToInt()}%"
                     }
+
+                    DialogUtils.showCustomDialog(this@NutritionAnalysisActivity, "Nutrition Generated.")
                 }
             }
 

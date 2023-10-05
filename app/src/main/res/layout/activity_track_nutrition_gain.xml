@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TrackCaloriesLossActivity"
+    tools:context=".TrackNutritionGain"
     android:orientation="vertical"
     android:background="#343434">
 
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:padding="10dp"
-            android:text="Track Calories Loss"
+            android:text="Track Nutrition Gain"
             android:textSize="30dp"
             android:textStyle="bold"
             android:textColor="#55534c"/>
@@ -37,7 +37,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
-        android:text="Daily Total Calories Loss"
+        android:text="Daily Nutrition Gain"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -49,13 +49,13 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_calorieLoss"
+            android:id="@+id/tv_calorieGained"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_totalLoss"
             android:layout_margin="15dp"
             android:layout_weight="0"
-            android:text="Calorie Loss"
+            android:text="Calorie Gained"
             android:textColor="#b0a36d"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_totalLoss"
-            android:text="650 kcal / 1200 kcal"
+            android:text="254 kcal"
             android:layout_margin="15dp"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -90,12 +90,61 @@
         android:progressTint="#008000"
         android:scaleY="6"/>
 
+    <LinearLayout
+        android:id="@+id/LinearLayoutLR2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_proteinGained"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_totalLoss"
+            android:layout_margin="15dp"
+            android:layout_weight="0"
+            android:text="Protein Gained"
+            android:textColor="#b0a36d"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_compareProtein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_totalLoss"
+            android:text="40 gram"
+            android:layout_margin="15dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:gravity="right"
+            />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/LinearLayoutLR2"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#55534c"
+        android:background="#55534c"
+        android:progressTint="#d0e856"
+        android:scaleY="6"/>
+
     <Button
-        android:id="@+id/btn_editCalories"
+        android:id="@+id/btn_editNutrition"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Edit Calories"
-        android:layout_below="@id/progressBar"
+        android:text="Edit Nutrition"
+        android:layout_below="@id/progressBar2"
         android:layout_alignParentRight="true"
         android:layout_marginTop="30dp"
         android:layout_marginRight="15dp"
@@ -106,7 +155,7 @@
         android:id="@+id/tv_dailyTarget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_editCalories"
+        android:layout_below="@id/btn_editNutrition"
         android:text="Daily Target"
         android:layout_margin="15dp"
         android:textSize="40sp"
@@ -116,11 +165,24 @@
         />
 
     <TextView
-        android:id="@+id/tv_toLoss"
+        android:id="@+id/tv_caloriesToGain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_dailyTarget"
-        android:text="Calories Loss: 1200kcal"
+        android:text="Calories: 2300 kcal"
+        android:layout_marginLeft="15dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_weight="1"
+        android:gravity="right"
+        />
+
+    <TextView
+        android:id="@+id/tv_proteinToGain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_caloriesToGain"
+        android:text="Protein: 120 gram"
         android:layout_marginLeft="15dp"
         android:textSize="25sp"
         android:textStyle="bold"

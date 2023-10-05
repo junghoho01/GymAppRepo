@@ -20,6 +20,9 @@
         android:theme="@style/Theme.GymBetaApp"
         tools:targetApi="31">
         <activity
+            android:name=".TrackNutritionGain"
+            android:exported="false" />
+        <activity
             android:name=".TestAPI"
             android:exported="false" />
         <activity

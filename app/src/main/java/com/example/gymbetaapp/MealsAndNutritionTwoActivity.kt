@@ -21,6 +21,15 @@ class MealsAndNutritionTwoActivity : AppCompatActivity() {
         binding.btnMealsNutritionAnalysis.setOnClickListener {
             toTestAPI()
         }
+
+        binding.btnTrackNutritionGain.setOnClickListener {
+            toTrackNutritionGain()
+        }
+    }
+
+    private fun toTrackNutritionGain() {
+        intent = Intent(this, TrackNutritionGain::class.java)
+        startActivity(intent)
     }
 
     private fun toTestAPI() {

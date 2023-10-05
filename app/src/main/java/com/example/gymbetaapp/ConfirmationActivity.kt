@@ -95,7 +95,9 @@ class ConfirmationActivity : AppCompatActivity() {
             "chronicDisease" to "",
             "status" to "1",
             "caloriesBurnt" to "0",
-            "caloriesDate" to formattedDate
+            "caloriesDate" to formattedDate,
+            "caloriesGained" to "0",
+            "proteinGained" to "0"
 
             // 1 represent true
         )
