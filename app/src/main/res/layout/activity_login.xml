@@ -50,7 +50,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:paddingLeft="15dp"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/light_grey"
         android:layout_below="@id/tv_emailAddress"
         android:background="@drawable/box_edittext_background"/>
 
@@ -76,7 +76,7 @@
         android:ems="10"
         android:hint="123^*asda@"
         android:inputType="textPassword"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/light_grey"
         android:paddingLeft="15dp"
         android:textColor="@color/black" />
 

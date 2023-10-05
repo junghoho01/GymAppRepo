@@ -46,17 +46,17 @@
                 android:id="@+id/et_calories"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:ems="10"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:hint="1000"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:paddingLeft="15dp"
-                android:textColorHint="@color/black"
                 android:layout_below="@id/tv_emailAddress"
-                android:background="@drawable/box_edittext_background"/>
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/box_edittext_background"
+                android:ems="10"
+                android:hint="1000"
+                android:textColorHint="@color/light_grey"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/btnEditCalories"

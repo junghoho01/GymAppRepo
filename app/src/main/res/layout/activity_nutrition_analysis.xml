@@ -44,7 +44,7 @@
         android:ems="10"
         android:inputType="text"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/light_grey"
         android:hint="100g chicken breast"
         android:paddingLeft="15dp"
         android:background="@drawable/box_edittext_background"
@@ -112,7 +112,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="100"
+                    android:text="0"
                     android:textSize="20sp"
                     android:gravity="end"
                     android:paddingRight="15dp"
@@ -131,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Total Fat 10.4g"
+                    android:text="Total Fat 0g"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#55534c" />
@@ -140,7 +140,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="16%"
+                    android:text="0%"
                     android:textSize="20sp"
                     android:gravity="end"
                     android:paddingRight="15dp"
@@ -153,7 +153,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingLeft="15dp"
-                    android:text="Saturated Fat 3g"
+                    android:text="Saturated Fat 0g"
                     android:textSize="20sp"
                     android:textColor="#55534c" />
                 <TextView
@@ -161,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="15%"
+                    android:text="0%"
                     android:textSize="20sp"
                     android:gravity="end"
                     android:paddingRight="15dp"
@@ -174,7 +174,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingLeft="15dp"
-                    android:text="Trans Fat 0.1g"
+                    android:text="Trans Fat 0g"
                     android:textSize="20sp"
                     android:textColor="#55534c" />
                 <TextView
@@ -194,7 +194,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Cholesterol 64mg"
+                    android:text="Cholesterol 0mg"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#55534c" />
@@ -203,7 +203,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="21%"
+                    android:text="0%"
                     android:textSize="20sp"
                     android:gravity="end"
                     android:paddingRight="15dp"
@@ -215,7 +215,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Sodium 65mg"
+                    android:text="Sodium 0mg"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#55534c" />
@@ -224,7 +224,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="3%"
+                    android:text="0%"
                     android:textSize="20sp"
                     android:gravity="end"
                     android:paddingRight="15dp"
@@ -236,7 +236,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Total Carbohydrate 154.7g"
+                    android:text="Total Carbohydrate 0g"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#55534c" />
@@ -245,7 +245,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="3%"
+                    android:text="0%"
                     android:textSize="20sp"
                     android:gravity="end"
                     android:paddingRight="15dp"
@@ -320,7 +320,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Protein 33.7g"
+                    android:text="Protein 0g"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#55534c" />
@@ -329,7 +329,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="67%"
+                    android:text="0%"
                     android:textSize="20sp"
                     android:gravity="end"
                     android:paddingRight="15dp"
@@ -342,7 +342,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingLeft="15dp"
-                    android:text="Vitamin D 0.4 ug"
+                    android:text="Vitamin D 0 ug"
                     android:textSize="20sp"
                     android:textColor="#55534c" />
                 <TextView
@@ -363,7 +363,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingLeft="15dp"
-                    android:text="Calcium 28.6 mg"
+                    android:text="Calcium 0 mg"
                     android:textSize="20sp"
                     android:textColor="#55534c" />
                 <TextView
@@ -371,7 +371,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="3%"
+                    android:text="0%"
                     android:textSize="20sp"
                     android:gravity="end"
                     android:paddingRight="15dp"
@@ -384,7 +384,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingLeft="15dp"
-                    android:text="Iron 2.3 mg"
+                    android:text="Iron 0 mg"
                     android:textSize="20sp"
                     android:textColor="#55534c" />
                 <TextView
@@ -392,7 +392,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="13%"
+                    android:text="0%"
                     android:textSize="20sp"
                     android:gravity="end"
                     android:paddingRight="15dp"
@@ -405,7 +405,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingLeft="15dp"
-                    android:text="Potassium 387.7 mg"
+                    android:text="Potassium 0 mg"
                     android:textSize="20sp"
                     android:textColor="#55534c" />
                 <TextView
@@ -413,7 +413,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="8%"
+                    android:text="0%"
                     android:textSize="20sp"
                     android:gravity="end"
                     android:paddingRight="15dp"
