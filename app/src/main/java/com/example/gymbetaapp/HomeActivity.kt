@@ -40,6 +40,15 @@ class HomeActivity : AppCompatActivity() {
         binding.btnMealsAndNutrition.setOnClickListener {
             toMealsAndNutrition()
         }
+
+        binding.btnRecommendationAndReport.setOnClickListener {
+            toRecommendationAndReport()
+        }
+    }
+
+    private fun toRecommendationAndReport() {
+        var intent = Intent(this, RecommendationAndReportActivity::class.java)
+        startActivity(intent)
     }
 
     private fun toMealsAndNutrition() {
