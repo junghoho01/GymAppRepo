@@ -20,6 +20,24 @@ class RecommendationAndReportActivity : AppCompatActivity() {
         binding.btnMealRecommendation.setOnClickListener {
             toMealRecommendation()
         }
+
+        binding.btnHealthRecommendation.setOnClickListener {
+            toMonthlyHealthReports()
+        }
+
+        binding.btnRiskPrediction.setOnClickListener {
+            toHealthRiskPrediction()
+        }
+    }
+
+    private fun toHealthRiskPrediction() {
+        var intent = Intent(this, HealthRiskPredictionActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun toMonthlyHealthReports() {
+        var intent = Intent(this, MonthlyHealthReportActivity::class.java)
+        startActivity(intent)
     }
 
     private fun toMealRecommendation() {

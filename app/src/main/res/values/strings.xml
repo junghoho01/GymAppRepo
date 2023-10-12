@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">GymBetaApp</string>
     <string name="confirmationMessage">A verification code has been sent to your email! Please get the verification code and verify here.</string>
+    <string name="healthyText">
+        You have kept up with the recommendations and have maintained good health for this month.
+        Keep up the good work and strive to improve your health even further
+    </string>
+    <string name="healthyRiskHealthy">
+        There are no health risks currently because of your good health, keep up the good work and
+        follow the recommendations to improve your health further
+    </string>
 </resources>

@@ -22,7 +22,7 @@
             android:layout_marginLeft="10dp"
             android:padding="10dp"
             android:text="Workout Recommendation"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold"
             android:textColor="#55534c"/>
 
@@ -44,6 +44,7 @@
         android:layout_marginRight="20dp"/>
 
     <TableLayout
+        android:id="@+id/tableWorkout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -176,6 +177,22 @@
         </TableRow>
 
     </TableLayout>
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tableWorkout"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#ffe98a"
+        android:text="Confirm"
+        android:textColor="@color/black" />
 
     <LinearLayout
         android:layout_width="match_parent"

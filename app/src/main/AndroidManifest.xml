@@ -20,6 +20,12 @@
         android:theme="@style/Theme.GymBetaApp"
         tools:targetApi="31">
         <activity
+            android:name=".HealthRiskPredictionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MonthlyHealthReportActivity"
+            android:exported="false" />
+        <activity
             android:name=".MealRecommendationActivity"
             android:exported="false" />
         <activity

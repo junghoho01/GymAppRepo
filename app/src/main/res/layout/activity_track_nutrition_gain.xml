@@ -22,7 +22,7 @@
             android:layout_marginLeft="10dp"
             android:padding="10dp"
             android:text="Track Nutrition Gain"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold"
             android:textColor="#55534c"/>
 
