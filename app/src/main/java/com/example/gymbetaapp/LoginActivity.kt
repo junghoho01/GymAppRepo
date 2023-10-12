@@ -40,6 +40,12 @@ class LoginActivity : AppCompatActivity() {
             //toMainActivity()
             validateAccess()
         }
+
+        val intent = intent
+        val flag = intent.getStringExtra("FLAG_KEY") // For string data
+        if (flag == "1"){
+            DialogUtils.showCustomDialog(this, "Please check your email for further step!  ")
+        }
     }
 
     private fun validateAccess() {
