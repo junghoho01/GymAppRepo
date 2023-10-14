@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:padding="10dp"
-            android:text="Monthly Health Report"
+            android:text="Health Report"
             android:textColor="#55534c"
             android:textSize="25dp"
             android:textStyle="bold" />

@@ -58,7 +58,7 @@
         <TableRow android:paddingTop="10dp">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/iv_breakfast"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/pancake"
@@ -101,7 +101,7 @@
             android:layout_marginTop="10dp">
 
             <ImageView
-                android:id="@+id/imageViewSquat"
+                android:id="@+id/iv_lunch"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/salmonrice"
@@ -144,7 +144,7 @@
             android:layout_marginBottom="10dp">
 
             <ImageView
-                android:id="@+id/imageViewJogging"
+                android:id="@+id/iv_dinner"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/roundedbackground"
