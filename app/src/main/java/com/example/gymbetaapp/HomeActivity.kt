@@ -44,6 +44,15 @@ class HomeActivity : AppCompatActivity() {
         binding.btnRecommendationAndReport.setOnClickListener {
             toRecommendationAndReport()
         }
+
+        binding.btnViewProfile.setOnClickListener {
+            toViewProfile()
+        }
+    }
+
+    private fun toViewProfile() {
+        var intent = Intent(this, ViewProfileActivity::class.java)
+        startActivity(intent)
     }
 
     private fun toRecommendationAndReport() {

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewProfileActivity"
+    android:orientation="vertical"
+    android:background="#343434">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffe98a">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:layout_marginLeft="10dp"
+            android:padding="10dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="#55534c"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/relativeLayout2"
+        android:layout_above="@id/btm_navigation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_emailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email Address *"
+        android:textSize="20dp"
+        android:layout_below="@id/relativeLayout2"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp" />
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:hint="xx@gmail.com"
+        android:textColorHint="@color/light_grey"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="15dp"
+        android:layout_below="@id/tv_emailAddress"
+        android:background="@drawable/box_edittext_background"/>
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_email"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Username *"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/tv_username"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/box_edittext_background"
+        android:ems="10"
+        android:hint="xxxxxxx"
+        android:inputType="text"
+        android:paddingLeft="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/light_grey"
+        android:clickable="false"/>
+
+    <TextView
+        android:id="@+id/tv_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password *"
+        android:textSize="20dp"
+        android:layout_below="@id/et_username"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:hint="123^*asda@"
+        android:textColorHint="@color/light_grey"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="15dp"
+        android:layout_below="@id/tv_password"
+        android:background="@drawable/box_edittext_background"/>
+
+    <TextView
+        android:id="@+id/tv_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender *"
+        android:textSize="20dp"
+        android:layout_below="@id/et_password"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp" />
+
+    <Spinner
+        android:id="@+id/spinner_gender"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/tv_gender"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/spinner_border"/>
+
+    <TextView
+        android:id="@+id/tv_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age *"
+        android:textSize="20dp"
+        android:layout_below="@id/spinner_gender"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp" />
+
+    <Spinner
+        android:id="@+id/spinner_age"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/tv_age"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/spinner_border"/>
+
+    <TextView
+        android:id="@+id/tv_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Height *"
+        android:textSize="20dp"
+        android:layout_below="@id/spinner_age"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp" />
+
+    <Spinner
+        android:id="@+id/spinner_height"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/tv_height"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/spinner_border"/>
+
+    <TextView
+        android:id="@+id/tv_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight *"
+        android:textSize="20dp"
+        android:layout_below="@id/spinner_height"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp" />
+
+    <Spinner
+        android:id="@+id/spinner_weight"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/tv_weight"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/spinner_border"/>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_below="@id/spinner_weight"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#ffe98a"
+        android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/btm_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:background="#ffe98a"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/nav_section1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="Section 1"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:src="@drawable/baseline_sports_gymnastics_24" />
+
+        <ImageView
+            android:id="@+id/nav_section2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="Section 1"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:src="@drawable/baseline_set_meal_24" />
+
+        <ImageView
+            android:id="@+id/nav_section3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="Section 1"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:src="@drawable/baseline_home_24" />
+
+        <ImageView
+            android:id="@+id/nav_section4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="Section 1"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:src="@drawable/baseline_signal_cellular_alt_24" />
+
+        <ImageView
+            android:id="@+id/nav_section5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="Section 1"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:src="@drawable/baseline_person_24" />
+
+    </LinearLayout>
+
+</RelativeLayout>
