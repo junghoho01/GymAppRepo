@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
     android:orientation="vertical"
-    android:background="#343434">
+    android:background="#343434"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
@@ -28,72 +29,88 @@
 
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/img_logo"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:src="@drawable/filtration_pic"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:layout_below="@id/relativeLayout2"/>
-
-    <Button
-        android:id="@+id/btn_workout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_below="@id/img_logo"
-        android:text="Workouts"
-        android:textColor="#ffe98a"
-        android:drawableLeft="@drawable/workout"
-        android:backgroundTint="#55534c"
+        android:layout_height="match_parent"
+        android:layout_below="@id/relativeLayout2"
+        android:layout_above="@id/btm_navigation"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginBottom="20dp">
 
-    <Button
-        android:id="@+id/btn_mealsAndNutrition"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_below="@id/btn_workout"
-        android:text="Meals and Nutrition"
-        android:drawableLeft="@drawable/meals"
-        android:textColor="#ffe98a"
-        android:backgroundTint="#55534c"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_recommendationAndReport"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_below="@id/btn_mealsAndNutrition"
-        android:text="Recommendation and Report"
-        android:drawableLeft="@drawable/analyse"
-        android:textColor="#ffe98a"
-        android:backgroundTint="#55534c"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:src="@drawable/filtration_pic"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp" />
 
-    <Button
-        android:id="@+id/btn_viewProfile"
-        android:layout_width="match_parent"
-        android:drawableLeft="@drawable/profile"
-        android:layout_height="70dp"
-        android:layout_below="@id/btn_recommendationAndReport"
-        android:text="View Profile"
-        android:textColor="#ffe98a"
-        android:backgroundTint="#55534c"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        <Button
+            android:id="@+id/btn_workout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/img_logo"
+            android:text="Workouts"
+            android:textColor="#ffe98a"
+            android:drawableLeft="@drawable/workout"
+            android:backgroundTint="#55534c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btn_mealsAndNutrition"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/btn_workout"
+            android:text="Meals and Nutrition"
+            android:drawableLeft="@drawable/meals"
+            android:textColor="#ffe98a"
+            android:backgroundTint="#55534c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btn_recommendationAndReport"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/btn_mealsAndNutrition"
+            android:text="Recommendation and Report"
+            android:drawableLeft="@drawable/analyse"
+            android:textColor="#ffe98a"
+            android:backgroundTint="#55534c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btn_viewProfile"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/profile"
+            android:layout_height="70dp"
+            android:layout_below="@id/btn_recommendationAndReport"
+            android:text="View Profile"
+            android:textColor="#ffe98a"
+            android:backgroundTint="#55534c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
+        android:id="@+id/btm_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
