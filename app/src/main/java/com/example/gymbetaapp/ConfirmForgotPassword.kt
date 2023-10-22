@@ -1,9 +1,11 @@
 package com.example.gymbetaapp
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.gymbetaapp.databinding.ActivityConfirmForgotPasswordBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -13,6 +15,7 @@ class ConfirmForgotPassword : AppCompatActivity() {
     private lateinit var binding : ActivityConfirmForgotPasswordBinding
     private var db = Firebase.firestore
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityConfirmForgotPasswordBinding.inflate(layoutInflater)
@@ -30,8 +33,9 @@ class ConfirmForgotPassword : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun updatePassword(email: String, randomPassword: String) {
-        db.collection("user").document(email).update("pass", randomPassword)
+        db.collection("user").document(email).update("pass", DialogUtils.encrypt(randomPassword))
     }
 
     private fun submitEmail(email: String, randomPassword: String) {

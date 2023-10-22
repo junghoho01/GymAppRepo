@@ -6,24 +6,21 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gymbetaapp.databinding.ActivitySubBicepsBinding
 import com.example.gymbetaapp.databinding.ActivitySubBrowseWorkoutsBinding
-import com.google.firebase.firestore.DocumentChange
-import com.google.firebase.firestore.EventListener
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreException
-import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.*
 
-class SubBrowseWorkoutsActivity : AppCompatActivity() {
+class SubBicepsActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var absArrayList: ArrayList<Abs>
     private lateinit var absAdapter: AbsAdapter
     private lateinit var db : FirebaseFirestore
-    private lateinit var binding : ActivitySubBrowseWorkoutsBinding
+    private lateinit var binding : ActivitySubBicepsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySubBrowseWorkoutsBinding.inflate(layoutInflater)
+        binding = ActivitySubBicepsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // btmNavigation
@@ -70,7 +67,7 @@ class SubBrowseWorkoutsActivity : AppCompatActivity() {
                 var calories = absArrayList[position].workoutCalories
                 var video = absArrayList[position].workoutVid
 //                Toast.makeText(this@SubBrowseWorkoutsActivity, pic, Toast.LENGTH_SHORT).show()
-                var intent = Intent(this@SubBrowseWorkoutsActivity, DetailWorkoutActivity::class.java)
+                var intent = Intent(this@SubBicepsActivity, DetailWorkoutActivity::class.java)
                 intent.putExtra("title", title)
                 intent.putExtra("info", info)
                 intent.putExtra("pic", pic)
@@ -85,25 +82,25 @@ class SubBrowseWorkoutsActivity : AppCompatActivity() {
 
     private fun EventChangeListener() {
         db = FirebaseFirestore.getInstance()
-        db.collection("workouts").
-                addSnapshotListener(object: EventListener<QuerySnapshot>{
-                    override fun onEvent(
-                        value: QuerySnapshot?,
-                        error: FirebaseFirestoreException?
-                    ) {
-                        if (error != null){
-                            Log.e("Firestore error", error.message.toString())
-                            return
-                        }
+        db.collection("bicepWorkout").
+        addSnapshotListener(object: EventListener<QuerySnapshot> {
+            override fun onEvent(
+                value: QuerySnapshot?,
+                error: FirebaseFirestoreException?
+            ) {
+                if (error != null){
+                    Log.e("Firestore error", error.message.toString())
+                    return
+                }
 
-                        for (dc: DocumentChange in value?.documentChanges!!){
-                            if(dc.type == DocumentChange.Type.ADDED){
-                                absArrayList.add(dc.document.toObject(Abs::class.java))
-                            }
-                        }
-
-                        absAdapter.notifyDataSetChanged()
+                for (dc: DocumentChange in value?.documentChanges!!){
+                    if(dc.type == DocumentChange.Type.ADDED){
+                        absArrayList.add(dc.document.toObject(Abs::class.java))
                     }
-                })
+                }
+
+                absAdapter.notifyDataSetChanged()
+            }
+        })
     }
 }

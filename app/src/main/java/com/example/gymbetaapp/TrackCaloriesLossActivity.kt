@@ -11,6 +11,8 @@ import androidx.core.content.ContextCompat
 import com.example.gymbetaapp.databinding.ActivityTrackCaloriesLossBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TrackCaloriesLossActivity : AppCompatActivity() {
 
@@ -40,6 +42,9 @@ class TrackCaloriesLossActivity : AppCompatActivity() {
         val userId = userEmail.toString()
         val ref = db.collection("user").document(userId)
         var BMR = 0
+        val currentDate = Date()
+        val formattedDate = formatDate(currentDate, "yyyy-MM-dd")
+
         ref.get().addOnSuccessListener {
             if (it != null){
                 // Get data
@@ -49,6 +54,15 @@ class TrackCaloriesLossActivity : AppCompatActivity() {
                 val calorieBurnt = it.data?.get("caloriesBurnt")?.toString().toString()
                 val calorieDate = it.data?.get("caloriesDate")?.toString().toString()
                 val gender = it.data?.get("gender")?.toString().toString()
+
+                if(calorieDate != formattedDate){
+                    val userMap = mapOf(
+                        "caloriesBurnt" to "0",
+                        "caloriesDate" to formattedDate
+                    )
+
+                    db.collection("user").document(userId).update(userMap)
+                }
 
                 if(gender == "Male"){
                     BMR = menBMR(weight, height, age).toInt()
@@ -82,6 +96,33 @@ class TrackCaloriesLossActivity : AppCompatActivity() {
         }.addOnFailureListener {
                 Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
         }
+
+        // btmNavigation
+        binding.navSection1.setOnClickListener {
+            var intent = Intent(this, WorkoutActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection2.setOnClickListener {
+            var intent = Intent(this, MealsAndNutritionTwoActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection3.setOnClickListener {
+            var intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection4.setOnClickListener {
+            var intent = Intent(this, RecommendationAndReportActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection5.setOnClickListener {
+            var intent = Intent(this, ViewProfileActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun menBMR(weight: String, height: String, age: String): Number {
@@ -100,5 +141,10 @@ class TrackCaloriesLossActivity : AppCompatActivity() {
 
         var BMR = 655.1 + (4.35 * weight) + (4.7 * height) - (4.7 * age)
         return BMR.toInt()
+    }
+
+    fun formatDate(date: Date, format: String): String {
+        val dateFormat = SimpleDateFormat(format)
+        return dateFormat.format(date)
     }
 }

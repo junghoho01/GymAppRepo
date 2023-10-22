@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gymbetaapp.databinding.ActivitySearchRecipeBinding
@@ -58,6 +57,33 @@ class SearchRecipeActivity : AppCompatActivity() {
             recipeArrayList.clear()
             recipeArrayList.addAll(filteredList)
             recipeAdapter.notifyDataSetChanged()
+        }
+
+        // btmNavigation
+        binding.navSection1.setOnClickListener {
+            var intent = Intent(this, WorkoutActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection2.setOnClickListener {
+            var intent = Intent(this, MealsAndNutritionTwoActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection3.setOnClickListener {
+            var intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection4.setOnClickListener {
+            var intent = Intent(this, RecommendationAndReportActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection5.setOnClickListener {
+            var intent = Intent(this, ViewProfileActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
     }

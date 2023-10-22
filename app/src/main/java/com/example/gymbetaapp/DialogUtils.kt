@@ -4,18 +4,25 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat.startActivity
 import com.example.gymbetaapp.databinding.ActivityDetailWorkoutBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
+import javax.crypto.Cipher
+import javax.crypto.spec.SecretKeySpec
+import javax.crypto.spec.IvParameterSpec
+import java.util.Base64
+
 
 object DialogUtils {
 
@@ -121,7 +128,7 @@ object DialogUtils {
 
         //Start here
         val videoView = dialog.findViewById<VideoView>(R.id.videoView)
-        val storageRef = FirebaseStorage.getInstance().reference.child("videos/situpvid.mp4")
+        val storageRef = FirebaseStorage.getInstance().reference.child("videos/$title.mp4")
         val localFile = File.createTempFile("tempFile", "mp4")
 
         storageRef.getFile(localFile).addOnSuccessListener {
@@ -248,4 +255,74 @@ object DialogUtils {
 
         dialog.show()
     }
+
+    fun deleteDialog(context: Context, email: String, callback: () -> Unit) {
+        var db = Firebase.firestore
+        //Dismiss the previous dialog if it exists
+        previousDialog?.dismiss()
+
+        val dialog = Dialog(context)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setContentView(R.layout.custom_denied)
+        val text = dialog.findViewById<TextView>(R.id.tv_title)
+        text.text = "Are you sure you want to delete this account?"
+        val btnDelete = dialog.findViewById<Button>(R.id.btnDeniedClose)
+        btnDelete.setOnClickListener {
+
+            val data = mapOf(
+                "status" to "0"
+            )
+
+            db.collection("user").document(email).update(data)
+
+            dialog.dismiss()
+            callback()
+
+            dialog.dismiss()
+        }
+
+        // Set the current dialog as the previous dialog
+        previousDialog = dialog
+
+        dialog.show()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun encrypt(text: String): String {
+        val secretKey = "ThisIsASecretKey"
+        val initializationVector = "1234567890123456"
+
+        try {
+            val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
+            val keySpec = SecretKeySpec(secretKey.toByteArray(), "AES")
+            val ivSpec = IvParameterSpec(initializationVector.toByteArray())
+            cipher.init(Cipher.ENCRYPT_MODE, keySpec, ivSpec)
+            val encryptedBytes = cipher.doFinal(text.toByteArray())
+            return Base64.getEncoder().encodeToString(encryptedBytes)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return ""
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun decrypt(encryptedText: String): String {
+        val secretKey = "ThisIsASecretKey"
+        val initializationVector = "1234567890123456"
+
+        try {
+            val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
+            val keySpec = SecretKeySpec(secretKey.toByteArray(), "AES")
+            val ivSpec = IvParameterSpec(initializationVector.toByteArray())
+            cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec)
+            val encryptedBytes = Base64.getDecoder().decode(encryptedText)
+            val decryptedBytes = cipher.doFinal(encryptedBytes)
+            return String(decryptedBytes)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return ""
+    }
+
 }

@@ -2,6 +2,7 @@ package com.example.gymbetaapp
 
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,6 +26,7 @@ class DetailWorkoutActivity : AppCompatActivity() {
         val title = intent.getStringExtra("title").toString()
         val pic = intent.getStringExtra("pic").toString()
         val calories = intent.getStringExtra("CALORIES_KEY").toString()
+        val videoName = intent.getStringExtra("VIDEO_KEY").toString()
 
 //       Toast.makeText(this, calories, Toast.LENGTH_SHORT).show()
 
@@ -41,7 +43,7 @@ class DetailWorkoutActivity : AppCompatActivity() {
         }
 
         binding.btnVideo.setOnClickListener {
-            DialogUtils.videoDialog(this, pic)
+            DialogUtils.videoDialog(this, videoName)
         }
 
         binding.btnAddCalories.setOnClickListener {
@@ -49,6 +51,33 @@ class DetailWorkoutActivity : AppCompatActivity() {
         }
 
         showImage(pic)
+
+        // btmNavigation
+        binding.navSection1.setOnClickListener {
+            var intent = Intent(this, WorkoutActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection2.setOnClickListener {
+            var intent = Intent(this, MealsAndNutritionTwoActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection3.setOnClickListener {
+            var intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection4.setOnClickListener {
+            var intent = Intent(this, RecommendationAndReportActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection5.setOnClickListener {
+            var intent = Intent(this, ViewProfileActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun showImage(pic: String) {

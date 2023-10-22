@@ -1,9 +1,11 @@
 package com.example.gymbetaapp
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.gymbetaapp.databinding.ActivityConfirmationBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -15,6 +17,7 @@ class ConfirmationActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityConfirmationBinding
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityConfirmationBinding.inflate(layoutInflater)
@@ -33,6 +36,7 @@ class ConfirmationActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun validateCode(receiveCode: String, email: String, username: String, pass: String) {
         var code = binding.etCode.text.toString()
 
@@ -71,6 +75,7 @@ class ConfirmationActivity : AppCompatActivity() {
         return generatedCode.toString()
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun toWhatGender(email: String, username: String, pass: String) {
         insertDataToFirebase(email, username, pass)
         val intent = Intent(this, WhatGenderActivity::class.java)
@@ -78,6 +83,7 @@ class ConfirmationActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun insertDataToFirebase(email: String, username: String, pass: String) {
         var db = Firebase.firestore
 
@@ -87,7 +93,7 @@ class ConfirmationActivity : AppCompatActivity() {
         val userMap = hashMapOf(
             "email" to email,
             "username" to username,
-            "pass" to pass,
+            "pass" to DialogUtils.encrypt(pass),
             "gender" to "",
             "age" to "",
             "height" to "",
@@ -97,7 +103,10 @@ class ConfirmationActivity : AppCompatActivity() {
             "caloriesBurnt" to "0",
             "caloriesDate" to formattedDate,
             "caloriesGained" to "0",
-            "proteinGained" to "0"
+            "proteinGained" to "0",
+            "dateJoined" to formattedDate,
+            "whos" to "user",
+            "nutritionDate" to formattedDate
 
             // 1 represent true
         )

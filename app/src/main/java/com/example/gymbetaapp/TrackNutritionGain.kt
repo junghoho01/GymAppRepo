@@ -10,6 +10,8 @@ import android.widget.Toast
 import com.example.gymbetaapp.databinding.ActivityTrackNutritionGainBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TrackNutritionGain : AppCompatActivity() {
 
@@ -21,6 +23,33 @@ class TrackNutritionGain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTrackNutritionGainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // btmNavigation
+        binding.navSection1.setOnClickListener {
+            var intent = Intent(this, WorkoutActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection2.setOnClickListener {
+            var intent = Intent(this, MealsAndNutritionTwoActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection3.setOnClickListener {
+            var intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection4.setOnClickListener {
+            var intent = Intent(this, RecommendationAndReportActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection5.setOnClickListener {
+            var intent = Intent(this, ViewProfileActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         // Retrieve data from shared preferences
         val sharedPref = getSharedPreferences("my_app_session", Context.MODE_PRIVATE)
@@ -40,6 +69,9 @@ class TrackNutritionGain : AppCompatActivity() {
         val userId = userEmail.toString()
         val ref = db.collection("user").document(userId)
         var BMR = 0
+        val currentDate = Date()
+        val formattedDate = formatDate(currentDate, "yyyy-MM-dd")
+
         ref.get().addOnSuccessListener {
             if (it != null){
                 // Get data
@@ -49,6 +81,19 @@ class TrackNutritionGain : AppCompatActivity() {
                 val calorieGained = it.data?.get("caloriesGained")?.toString().toString()
                 val proteinGained = it.data?.get("proteinGained")?.toString().toString()
                 val gender = it.data?.get("gender")?.toString().toString()
+                val calorieDate = it.data?.get("caloriesDate")?.toString().toString()
+                val nutritionDate = it.data?.get("nutritionDate")?.toString().toString()
+
+
+                if(nutritionDate != formattedDate){
+                    val userMap = mapOf(
+                        "caloriesGained" to "0",
+                        "proteinGained" to "0",
+                        "nutritionDate" to formattedDate
+                    )
+
+                    db.collection("user").document(userId).update(userMap)
+                }
 
                 if(gender == "Male"){
                     BMR = menBMR(weight, height, age).toInt()
@@ -127,5 +172,10 @@ class TrackNutritionGain : AppCompatActivity() {
 
         var BMR = 665.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age)
         return BMR.toInt()
+    }
+
+    fun formatDate(date: Date, format: String): String {
+        val dateFormat = SimpleDateFormat(format)
+        return dateFormat.format(date)
     }
 }

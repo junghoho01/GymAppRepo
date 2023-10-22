@@ -3,10 +3,12 @@ package com.example.gymbetaapp
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.gymbetaapp.databinding.ActivityLoginBinding
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.ktx.firestore
@@ -21,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding : ActivityLoginBinding
     private var db = Firebase.firestore
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -48,6 +51,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun validateAccess() {
         var enemail = binding.etEmail.text.toString()
         var enpassword = binding.etPassword.text.toString()
@@ -61,6 +65,8 @@ class LoginActivity : AppCompatActivity() {
                     // Get data
                     val email = it.data?.get("email")?.toString()
                     val password = it.data?.get("pass")?.toString()
+                    val whos = it.data?.get("whos")?.toString()
+                    val status = it.data?.get("status")?.toString()
 
                     val sharedPref = getSharedPreferences("my_app_session", Context.MODE_PRIVATE)
                     val editor = sharedPref.edit()
@@ -68,8 +74,11 @@ class LoginActivity : AppCompatActivity() {
                     editor.putString("user_email", email)
                     editor.apply()
 
-                    if (enemail == email && enpassword == password){
+                    if (enemail == email && enpassword == DialogUtils.decrypt(password!!) && whos == "user" && status == "1"){
                         toMainActivity()
+                    }
+                    else if (enemail == email && enpassword == password && whos == "admin"){
+                        toAdminPage()
                     }
                     else {
                         DialogUtils.denyDialog(this, "Invalid Credential")
@@ -80,6 +89,12 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                 }
         }
+    }
+
+    private fun toAdminPage() {
+        val intent = Intent(this@LoginActivity, AdminPageActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun toMainActivity() {

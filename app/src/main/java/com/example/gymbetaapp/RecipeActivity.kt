@@ -2,6 +2,7 @@ package com.example.gymbetaapp
 
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -26,6 +27,33 @@ class RecipeActivity : AppCompatActivity() {
         val name = intent.getStringExtra("FOODNAME_KEY") // For string data
 
         setDisplay(name)
+
+        // btmNavigation
+        binding.navSection1.setOnClickListener {
+            var intent = Intent(this, WorkoutActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection2.setOnClickListener {
+            var intent = Intent(this, MealsAndNutritionTwoActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection3.setOnClickListener {
+            var intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection4.setOnClickListener {
+            var intent = Intent(this, RecommendationAndReportActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection5.setOnClickListener {
+            var intent = Intent(this, ViewProfileActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun setDisplay(name: String?) {

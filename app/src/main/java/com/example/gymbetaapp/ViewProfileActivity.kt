@@ -1,6 +1,8 @@
 package com.example.gymbetaapp
 
 import android.content.Context
+import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.gymbetaapp.databinding.ActivityViewProfileBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -17,10 +20,38 @@ class ViewProfileActivity : AppCompatActivity() {
     private lateinit var binding : ActivityViewProfileBinding
     private var db = Firebase.firestore
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityViewProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // btmNavigation
+        binding.navSection1.setOnClickListener {
+            var intent = Intent(this, WorkoutActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection2.setOnClickListener {
+            var intent = Intent(this, MealsAndNutritionTwoActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection3.setOnClickListener {
+            var intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection4.setOnClickListener {
+            var intent = Intent(this, RecommendationAndReportActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.navSection5.setOnClickListener {
+            var intent = Intent(this, ViewProfileActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         // For gender
         val items = arrayOf("Male", "Female")
@@ -60,6 +91,7 @@ class ViewProfileActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun toSave() {
 
         var username = binding.etUsername.text.toString()
@@ -71,7 +103,7 @@ class ViewProfileActivity : AppCompatActivity() {
 
         val userMap = mapOf(
             "username" to username,
-            "pass" to password,
+            "pass" to DialogUtils.encrypt(password),
             "age" to age,
             "height" to height,
             "weight" to weight,
