@@ -43,7 +43,7 @@ class EmailSender {
                 <meta charset="UTF-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Filtration - Account Verification</title>
+                <title>Fitrition - Account Verification</title>
             </head>
             <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
 
@@ -51,7 +51,7 @@ class EmailSender {
                 <table style="width: 100%; background-color: #2ecc71; padding: 20px 0;">
                     <tr>
                         <td align="center">
-                            <h1 style="color: #fff;">Filtration</h1>
+                            <h1 style="color: #fff;">Fitrition</h1>
                         </td>
                     </tr>
                 </table>
@@ -61,11 +61,11 @@ class EmailSender {
                     <tr>
                         <td>
                             <h2>Account Verification</h2>
-                            <p>Thank you for registering with Filtration Fitness!</p>
+                            <p>Thank you for registering with Fitrition Fitness!</p>
                             <p>To activate your account, please enter the verification code as below:</p>
                             <p><a style="background-color: #2ecc71; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 5px;" disabled>$verificationCode</a></p>
                             <p>If you did not create this account, you can ignore this email.</p>
-                            <p>Thank you for choosing Filtration Fitness!</p>
+                            <p>Thank you for choosing Fitrition Fitness!</p>
                         </td>
                     </tr>
                 </table>
@@ -74,7 +74,7 @@ class EmailSender {
                 <table style="width: 100%; background-color: #2ecc71; padding: 20px 0;">
                     <tr>
                         <td align="center">
-                            <p style="color: #fff;">&copy; 2023 Filtration Fitness</p>
+                            <p style="color: #fff;">&copy; 2023 Fitrition Fitness</p>
                         </td>
                     </tr>
                 </table>

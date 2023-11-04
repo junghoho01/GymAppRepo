@@ -112,7 +112,7 @@ class HealthRiskPredictionActivity : AppCompatActivity() {
             val height = tokens[3].split(": ")[1].toDouble()
             val hasChronicDisease = tokens[4].split(": ")[1].toBoolean()
 
-            // Check if the patient matches the input criteria with a tolerance of +-5 units for age, weight, and height
+            // Check if the patient matches the input criteria with a tolerance of +-10 units for age, weight, and height
             if (age in (inputAge - 10)..(inputAge + 10) &&
                 gender == inputGender &&  // "Any" means any gender is acceptable
                 weight >= (inputWeight - 10) && weight <= (inputWeight + 10) &&

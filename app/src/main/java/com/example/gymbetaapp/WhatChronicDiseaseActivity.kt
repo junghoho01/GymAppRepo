@@ -1,5 +1,6 @@
 package com.example.gymbetaapp
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -79,6 +80,12 @@ class WhatChronicDiseaseActivity : AppCompatActivity() {
         val intent = Intent(this@WhatChronicDiseaseActivity, HomeActivity::class.java)
         intent.putExtra("FLAG_KEY", "1")
         intent.putExtra("EMAIL_KEY", email)
+
+        val sharedPref = getSharedPreferences("my_app_session", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+        editor.putString("user_email", email)
+        editor.apply()
         startActivity(intent)
     }
 

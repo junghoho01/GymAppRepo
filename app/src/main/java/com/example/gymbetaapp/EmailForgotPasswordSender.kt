@@ -39,7 +39,7 @@ class EmailForgotPasswordSender {
                 <meta charset="UTF-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Filtration - New Password</title>
+                <title>Fitrition - New Password</title>
             </head>
             <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
 
@@ -47,7 +47,7 @@ class EmailForgotPasswordSender {
                 <table style="width: 100%; background-color: #2ecc71; padding: 20px 0;">
                     <tr>
                         <td align="center">
-                            <h1 style="color: #fff;">Filtration</h1>
+                            <h1 style="color: #fff;">Fitration</h1>
                         </td>
                     </tr>
                 </table>
@@ -57,11 +57,11 @@ class EmailForgotPasswordSender {
                     <tr>
                         <td>
                             <h2>New Password</h2>
-                            <p>You have requested a new password for your Filtration Fitness account.</p>
+                            <p>You have requested a new password for your Fitrition Fitness account.</p>
                             <p>Your new password is:</p>
                             <p><a style="background-color: #2ecc71; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 5px;" disabled>$verificationCode</a></p>
                             <p>If you did not request this change, please contact our support team.</p>
-                            <p>Thank you for choosing Filtration Fitness!</p>
+                            <p>Thank you for choosing Fitrition Fitness!</p>
                         </td>
                     </tr>
                 </table>
@@ -70,7 +70,7 @@ class EmailForgotPasswordSender {
                 <table style="width: 100%; background-color: #2ecc71; padding: 20px 0;">
                     <tr>
                         <td align="center">
-                            <p style="color: #fff;">&copy; 2023 Filtration Fitness</p>
+                            <p style="color: #fff;">&copy; 2023 Fitrition Fitness</p>
                         </td>
                     </tr>
                 </table>

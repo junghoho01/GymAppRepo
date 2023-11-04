@@ -5,10 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.gymbetaapp.databinding.ActivityRegisterBinding
 import com.example.gymbetaapp.databinding.ActivityWhatAgeBinding
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import java.util.concurrent.atomic.AtomicBoolean
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityRegisterBinding
+    private var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,8 +22,6 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.btnRegister.setOnClickListener {
 
-//            var intent = Intent(this, WhatAge::class.java)
-//            startActivity(intent)
             validation()
         }
     }
@@ -34,10 +37,17 @@ class RegisterActivity : AppCompatActivity() {
             if (pass == cpass) {
 
                 if(isEmailValid(email)){
-                    navigateConfirm(email, username, pass)
+
+                    isEmailExist(email) { emailExists ->
+                        if (emailExists) {
+                            DialogUtils.denyDialog(this, "Email existed.")
+                        } else {
+                            navigateConfirm(email, username, pass)
+                        }
+                    }
                 }
                 else{
-                    DialogUtils.denyDialog(this, "Please provide proper email")
+                    DialogUtils.denyDialog(this, "Wrong email format or email existed.")
                 }
 
             } else {
@@ -66,4 +76,22 @@ class RegisterActivity : AppCompatActivity() {
         val emailRegex = Regex("^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,})+$")
         return email.matches(emailRegex)
     }
+
+    fun isEmailExist(email: String, callback: (Boolean) -> Unit) {
+        val userId = email
+        val ref = db.collection("user").document(userId)
+        ref.get().addOnSuccessListener { documentSnapshot ->
+            if (documentSnapshot.exists()) {
+                // Email exists in the database
+                callback(true)
+            } else {
+                // Email doesn't exist in the database
+                callback(false)
+            }
+        }.addOnFailureListener { exception ->
+            // Handle any errors here, and consider email as not existing in case of an error
+            callback(false)
+        }
+    }
+
 }
