@@ -117,6 +117,7 @@ class ViewProfileActivity : AppCompatActivity() {
         db.collection("user").document(userId).update(userMap)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun getData() {
         // Get email
         // Retrieve data from shared preferences
@@ -132,7 +133,8 @@ class ViewProfileActivity : AppCompatActivity() {
                 val age = it.data?.get("age").toString()
                 val gender = it.data?.get("gender").toString()
                 val email = it.data?.get("email").toString()
-                val password = it.data?.get("pass").toString()
+                var password = it.data?.get("pass").toString()
+                password = DialogUtils.decrypt(password)
                 val username = it.data?.get("username").toString()
 
                 binding.etEmail.setText(email)

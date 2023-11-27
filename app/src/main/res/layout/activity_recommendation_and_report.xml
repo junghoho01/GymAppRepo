@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_below="@id/btn_mealRecommendation"
-        android:text="Monthly Health Recommendation"
+        android:text="Monthly Health Report"
         android:drawableLeft="@drawable/baseline_health_and_safety_24"
         android:textColor="#ffe98a"
         android:backgroundTint="#55534c"
