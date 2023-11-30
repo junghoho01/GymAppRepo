@@ -203,6 +203,24 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/spinner_border"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Disease *"
+        android:textSize="20dp"
+        android:layout_below="@id/spinner_height"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp" />
+
+    <Spinner
+        android:id="@+id/spinner_disease"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/spinner_border"/>
+
     <Button
         android:id="@+id/btn_save"
         android:layout_width="200dp"
@@ -213,6 +231,18 @@
         android:layout_marginTop="30dp"
         android:textColor="@color/black"
         android:backgroundTint="#ffe98a"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_below="@id/btn_logout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#ff8aa0"
         android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>

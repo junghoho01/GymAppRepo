@@ -26,6 +26,21 @@ class ViewProfileActivity : AppCompatActivity() {
         binding = ActivityViewProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // For spinner
+
+        val itemSpinner = arrayOf(
+            "None",
+            "Kidney Disease",
+            "Respiratory Disease",
+            "Heart Disease",
+            "Diabetes"
+        )
+
+        val adapterSpinner = ArrayAdapter<Any?>(this, R.layout.spinner_list, itemSpinner)
+        adapterSpinner.setDropDownViewResource(R.layout.spinner_list) // Use your custom layout
+        binding.spinnerDisease.adapter = adapterSpinner
+        binding.spinnerDisease.onItemSelectedListener = MySpinnerItemSelectedListener()
+
         // btmNavigation
         binding.navSection1.setOnClickListener {
             var intent = Intent(this, WorkoutActivity::class.java)
@@ -51,6 +66,13 @@ class ViewProfileActivity : AppCompatActivity() {
             var intent = Intent(this, ViewProfileActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        binding.btnLogout.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish() // Optional: finish the current activity if needed
         }
 
         // For gender
@@ -100,6 +122,7 @@ class ViewProfileActivity : AppCompatActivity() {
         var height = binding.spinnerHeight.selectedItem.toString()
         var weight = binding.spinnerWeight.selectedItem.toString()
         var gender = binding.spinnerGender.selectedItem.toString()
+        var disease = binding.spinnerDisease.selectedItem.toString()
 
         val userMap = mapOf(
             "username" to username,
@@ -107,7 +130,8 @@ class ViewProfileActivity : AppCompatActivity() {
             "age" to age,
             "height" to height,
             "weight" to weight,
-            "gender" to gender
+            "gender" to gender,
+            "chronicDisease" to disease,
         )
 
         val sharedPref = getSharedPreferences("my_app_session", Context.MODE_PRIVATE)
@@ -115,6 +139,12 @@ class ViewProfileActivity : AppCompatActivity() {
         val userId = userEmail
 
         db.collection("user").document(userId).update(userMap)
+            .addOnSuccessListener {
+                DialogUtils.showCustomDialog(this, "Profile information update succesfully!")
+            }
+            .addOnFailureListener {
+                DialogUtils.denyDialog(this, "Fail to update..")
+            }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -134,12 +164,25 @@ class ViewProfileActivity : AppCompatActivity() {
                 val gender = it.data?.get("gender").toString()
                 val email = it.data?.get("email").toString()
                 var password = it.data?.get("pass").toString()
+                var disease = it.data?.get("chronicDisease").toString()
                 password = DialogUtils.decrypt(password)
                 val username = it.data?.get("username").toString()
 
                 binding.etEmail.setText(email)
                 binding.etUsername.setText(username)
                 binding.etPassword.setText(password)
+
+                val diseaseArray = arrayOf(
+                    "None",
+                    "Kidney Disease",
+                    "Respiratory Disease",
+                    "Heart Disease",
+                    "Diabetes"
+                )
+                val diseasePosition = diseaseArray.indexOf(disease)
+                if (diseasePosition != -1) {
+                    binding.spinnerDisease.setSelection(diseasePosition)
+                }
 
                 val genderArray = arrayOf("Male", "Female")
                 val genderPosition = genderArray.indexOf(gender)
